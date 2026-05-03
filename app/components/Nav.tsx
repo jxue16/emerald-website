@@ -8,7 +8,6 @@ const links = [
   { label: "Team", href: "/team" },
   { label: "Past Projects", href: "/past-projects" },
   { label: "Placements", href: "/placements" },
-  { label: "Work With Us", href: "/work-with-us" },
 ];
 
 export default function Nav() {

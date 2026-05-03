@@ -65,22 +65,51 @@ export default function Team() {
           <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
             Our <em style={{ fontStyle: "italic", color: "#6aac88" }}>team.</em>
           </h1>
-          <p style={{ fontSize: 14, color: "#9a9a90", lineHeight: 1.8, maxWidth: 500, marginTop: 20 }}>
-            A group of driven students at Johns Hopkins, guided by MBB-experienced leadership and united by a commitment to rigorous, impactful work.
-          </p>
         </div>
 
-        {/* LEADERSHIP */}
+        {/* BOARD OF DIRECTORS */}
         <div style={{ padding: "64px 56px", borderBottom: "0.5px solid #d0cec4" }}>
-          <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>Leadership</p>
+          <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>Board of Directors</p>
+          <div className="leadership-grid">
+            {leadership.map((m, i) => <MemberCard key={i} {...m} />)}
+          </div>
+        </div>
+
+        {/* ADVISORY BOARD */}
+        <div style={{ padding: "64px 56px", borderBottom: "0.5px solid #d0cec4" }}>
+          <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>Advisory Board</p>
+          <div className="leadership-grid">
+            {leadership.map((m, i) => <MemberCard key={i} {...m} />)}
+          </div>
+        </div>
+
+        {/* MANAGING PARTNERS */}
+        <div style={{ padding: "64px 56px", borderBottom: "0.5px solid #d0cec4" }}>
+          <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>Managing Partners</p>
+          <div className="leadership-grid">
+            {leadership.map((m, i) => <MemberCard key={i} {...m} />)}
+          </div>
+        </div>
+
+        {/* PROJECT LEADS */}
+        <div style={{ padding: "64px 56px", borderBottom: "0.5px solid #d0cec4" }}>
+          <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>Project Leads</p>
           <div className="leadership-grid">
             {leadership.map((m, i) => <MemberCard key={i} {...m} />)}
           </div>
         </div>
 
         {/* CONSULTANTS */}
+        <div style={{ padding: "64px 56px", borderBottom: "0.5px solid #d0cec4" }}>
+          <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>Consultants</p>
+          <div className="leadership-grid">
+            {leadership.map((m, i) => <MemberCard key={i} {...m} />)}
+          </div>
+        </div>
+
+        {/* ALUMNI */}
         <div style={{ padding: "64px 56px" }}>
-          <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>Consultants & Analysts</p>
+          <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>Alumni</p>
           <div className="consultants-grid">
             {consultants.map((m, i) => <MemberCard key={i} {...m} />)}
           </div>
@@ -92,7 +121,7 @@ export default function Team() {
             <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(232,245,239,0.5)", fontWeight: 500, marginBottom: 10 }}>Join us</p>
             <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 30, color: "#f0ede4", fontWeight: 400 }}>Interested in joining Emerald?</h2>
           </div>
-          <a href="/placements" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 32px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
+          <a href="/work-with-us" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 32px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
             Apply now →
           </a>
         </div>
