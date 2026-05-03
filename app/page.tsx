@@ -37,7 +37,7 @@ export default function Home() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { height: 100%; background: #f7f5ef; }
 
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 57px - 48px); }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 57px - 48px - 14px); }
         .ticker-wrap { overflow: hidden; background: #0f3d28; padding: 14px 0 28px; cursor: pointer; }
         .ticker-track { display: flex; width: max-content; }
         .ticker-item { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6aac88; white-space: nowrap; font-weight: 500; padding: 0 36px; font-family: 'DM Sans', sans-serif; }
