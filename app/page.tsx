@@ -37,7 +37,7 @@ export default function Home() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html, body { height: 100%; background: #f7f5ef; }
 
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 0; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 57px - 48px); }
         .ticker-wrap { overflow: hidden; background: #0f3d28; padding: 14px 0 28px; cursor: pointer; }
         .ticker-track { display: flex; width: max-content; }
         .ticker-item { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6aac88; white-space: nowrap; font-weight: 500; padding: 0 36px; font-family: 'DM Sans', sans-serif; }
@@ -56,7 +56,7 @@ export default function Home() {
         <section className="hero-grid" style={{ flex: 1 }}>
 
           {/* LEFT */}
-          <div style={{ backgroundColor: "#1a1a18", padding: "148px 156px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <div style={{ backgroundColor: "#1a1a18", padding: "48px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 28, fontWeight: 500 }}>
               Johns Hopkins University · Est. 2022
             </p>
@@ -79,7 +79,7 @@ export default function Home() {
           </div>
 
           {/* RIGHT — stats */}
-          <div style={{ backgroundColor: "#1a6e4a", padding: "148px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <div style={{ backgroundColor: "#1a6e4a", padding: "48px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             {[
               { num: "25+", label: "Clients served" },
               { num: "$1T+", label: "Combined client market cap" },
