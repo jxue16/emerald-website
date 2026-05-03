@@ -100,7 +100,7 @@ export default function PracticeAreas() {
         </div>
 
         {/* MISSION — single slim horizontal bar */}
-        <div className="mission-bar" style={{ backgroundColor: "#1a6e4a", padding: "36px 56px", display: "flex", alignItems: "center", gap: 40 }}>
+        <div className="mission-bar" style={{ backgroundColor: "#1a6e4a", padding: "52px 56px", display: "flex", alignItems: "center", gap: 40 }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(232,245,239,0.5)", fontWeight: 500, whiteSpace: "nowrap", flexShrink: 0 }}>Our mission</p>
           <div style={{ width: "0.5px", height: 28, backgroundColor: "rgba(232,245,239,0.2)", flexShrink: 0 }} />
           <p style={{ fontSize: 15, color: "rgba(232,245,239,0.85)", lineHeight: 1.65, fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}>

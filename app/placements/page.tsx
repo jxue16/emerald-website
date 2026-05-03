@@ -3,14 +3,14 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 const placements = [
-  { firm: "McKinsey & Company", role: "Business Analyst", year: "2024" },
-  { firm: "Bain & Company", role: "Associate Consultant", year: "2024" },
-  { firm: "Boston Consulting Group", role: "Associate", year: "2024" },
-  { firm: "Deloitte Consulting", role: "Analyst", year: "2024" },
-  { firm: "Goldman Sachs", role: "Analyst, Strategy", year: "2023" },
-  { firm: "Amazon", role: "Product Manager", year: "2023" },
-  { firm: "Oliver Wyman", role: "Analyst", year: "2023" },
-  { firm: "Accenture Strategy", role: "Analyst", year: "2023" },
+  { name: "Alumni Name", firm: "McKinsey & Company", role: "Business Analyst", year: "2024" },
+  { name: "Alumni Name", firm: "Bain & Company", role: "Associate Consultant", year: "2024" },
+  { name: "Alumni Name", firm: "Bain & Company", role: "Associate Consultant", year: "2024" },
+  { name: "Alumni Name", firm: "Boston Consulting Group", role: "Associate", year: "2024" },
+  { name: "Alumni Name", firm: "Boston Consulting Group", role: "Associate", year: "2024" },
+  { name: "Alumni Name", firm: "Deloitte Consulting", role: "Analyst", year: "2024" },
+  { name: "Alumni Name", firm: "Goldman Sachs", role: "Analyst, Strategy", year: "2023" },
+  { name: "Alumni Name", firm: "Amazon", role: "Product Manager", year: "2023" },
 ];
 
 export default function Placements() {
@@ -48,8 +48,15 @@ export default function Placements() {
           <div>
             {placements.map((p, i) => (
               <div key={i} className="placement-row">
-                <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 18, color: "#1a1a18", fontWeight: 400 }}>{p.firm}</div>
-                <div style={{ fontSize: 13, color: "#7a7a74" }}>{p.role}</div>
+                <div style={{ minWidth: 180 }}>
+                  <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 17, color: "#1a1a18", fontWeight: 400 }}>{p.name}</div>
+                </div>
+                <div style={{ minWidth: 220 }}>
+                  <div style={{ fontSize: 13, color: "#7a7a74" }}>{p.firm}</div>
+                </div>
+                <div style={{ minWidth: 180 }}>
+                  <div style={{ fontSize: 13, color: "#7a7a74" }}>{p.role}</div>
+                </div>
                 <div style={{ fontSize: 11, color: "#aaa", letterSpacing: "0.08em", fontWeight: 500 }}>{p.year}</div>
               </div>
             ))}
