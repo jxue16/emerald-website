@@ -1,8 +1,9 @@
+"use client";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 const boardOfDirectors = [
-  { name: "Name", role: "President", initials: "AD", linkedin: "https://linkedin.com" },
+  { name: "Name", role: "President", initials: "-", linkedin: "https://linkedin.com" },
   { name: "Name", role: "Vice President", initials: "—", linkedin: "https://linkedin.com" },
   { name: "Name", role: "Director of Consulting", initials: "—", linkedin: "https://linkedin.com" },
   { name: "Name", role: "Director of Recruitment", initials: "—", linkedin: "https://linkedin.com" },
