@@ -8,9 +8,6 @@ const tickerItems = [
   "Financial Modeling",
   "Market Analysis",
   "Data Analytics",
-  "Digital Strategy",
-  "Process Automation",
-  "MBB Leadership",
 ];
 
 export default function Home() {
