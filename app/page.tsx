@@ -84,7 +84,6 @@ export default function Home() {
               { num: "25+", label: "Clients served" },
               { num: "$1T+", label: "Combined client market cap" },
               { num: "100%", label: "MBB-experienced leadership" },
-              { num: "6", label: "Core practice areas" },
             ].map((s) => (
               <div key={s.label} style={{ borderTop: "0.5px solid rgba(255,255,255,0.15)", padding: "28px 0" }}>
                 <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 54, color: "#e8f5ef", lineHeight: 1, marginBottom: 8, fontWeight: 400 }}>{s.num}</div>
