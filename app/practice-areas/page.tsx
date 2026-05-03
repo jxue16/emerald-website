@@ -80,7 +80,7 @@ export default function PracticeAreas() {
         {/* PAGE HEADER */}
         <div style={{ backgroundColor: "#1a1a18", padding: "64px 56px 56px" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 16, fontWeight: 500 }}>What we do</p>
-          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1, maxWidth: 640 }}>
+          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 36, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1, maxWidth: 640 }}>
             Six capabilities.<br />
             <em style={{ fontStyle: "italic", color: "#6aac88" }}>One standard of excellence.</em>
           </h1>
@@ -104,7 +104,7 @@ export default function PracticeAreas() {
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(232,245,239,0.5)", fontWeight: 500, whiteSpace: "nowrap", flexShrink: 0 }}>Our mission</p>
           <div style={{ width: "0.5px", height: 28, backgroundColor: "rgba(232,245,239,0.2)", flexShrink: 0 }} />
           <p style={{ fontSize: 15, color: "rgba(232,245,239,0.85)", lineHeight: 1.65, fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}>
-            Led by MBB-experienced leaders, we develop the next generation of consultants at Johns Hopkins — while delivering data-driven strategy to organizations of any size.
+            Led by MBB-experienced leaders, we develop the next generation of consultants at Johns Hopkins while delivering effective, data-driven strategy.
           </p>
           <a href="/about" style={{ whiteSpace: "nowrap", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(232,245,239,0.6)", fontWeight: 500, textDecoration: "none", borderBottom: "0.5px solid rgba(232,245,239,0.3)", paddingBottom: 2, flexShrink: 0 }}>
             Learn more →
