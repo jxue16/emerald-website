@@ -4,10 +4,12 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
 const tickerItems = [
-  "Growth Strategy",
+  "Growth & Go-to-Market",
   "Financial Modeling",
   "Market Analysis",
   "Data Analytics",
+  "Product Strategy",
+  "Process Automation",
 ];
 
 export default function Home() {
