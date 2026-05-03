@@ -56,7 +56,7 @@ export default function Home() {
         <section className="hero-grid" style={{ flex: 1 }}>
 
           {/* LEFT */}
-          <div style={{ backgroundColor: "#1a1a18", padding: "48px 48px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <div style={{ backgroundColor: "#1a1a18", padding: "148px 156px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 28, fontWeight: 500 }}>
               Johns Hopkins University · Est. 2022
             </p>
@@ -79,7 +79,7 @@ export default function Home() {
           </div>
 
           {/* RIGHT — stats */}
-          <div style={{ backgroundColor: "#1a6e4a", padding: "48px 48px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <div style={{ backgroundColor: "#1a6e4a", padding: "148px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             {[
               { num: "25+", label: "Clients served" },
               { num: "$1T+", label: "Combined client market cap" },
