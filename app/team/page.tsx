@@ -3,10 +3,10 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 const boardOfDirectors = [
-  { name: "Name", role: "President", initials: "-", linkedin: "https://linkedin.com" },
-  { name: "Name", role: "Vice President", initials: "—", linkedin: "https://linkedin.com" },
-  { name: "Name", role: "Director of Consulting", initials: "—", linkedin: "https://linkedin.com" },
-  { name: "Name", role: "Director of Recruitment", initials: "—", linkedin: "https://linkedin.com" },
+  { name: "Name", role: "Director", initials: "-", linkedin: "https://linkedin.com" },
+  { name: "Name", role: "Director", initials: "—", linkedin: "https://linkedin.com" },
+  { name: "Name", role: "Director", initials: "—", linkedin: "https://linkedin.com" },
+  { name: "Name", role: "Director", initials: "—", linkedin: "https://linkedin.com" },
 ];
 
 const advisoryBoard = [
@@ -126,9 +126,6 @@ export default function Team() {
           <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
             Our <em style={{ fontStyle: "italic", color: "#6aac88" }}>team.</em>
           </h1>
-          <p style={{ fontSize: 14, color: "#9a9a90", lineHeight: 1.8, maxWidth: 500, marginTop: 20 }}>
-            A group of driven students at Johns Hopkins, guided by MBB-experienced leadership and united by a commitment to rigorous, impactful work.
-          </p>
         </div>
 
         <Section title="Board of Directors" members={boardOfDirectors} />
