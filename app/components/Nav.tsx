@@ -4,9 +4,9 @@ import { usePathname } from "next/navigation";
 const links = [
   { label: "Home", href: "/" },
   { label: "Practice Areas", href: "/practice-areas" },
+  { label: "Past Projects", href: "/past-projects" },
   { label: "About Us", href: "/about" },
   { label: "Team", href: "/team" },
-  { label: "Past Projects", href: "/past-projects" },
   { label: "Placements", href: "/placements" },
 ];
 
