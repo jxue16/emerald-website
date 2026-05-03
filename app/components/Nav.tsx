@@ -8,6 +8,7 @@ const links = [
   { label: "Team", href: "/team" },
   { label: "Past Projects", href: "/past-projects" },
   { label: "Placements", href: "/placements" },
+  { label: "Work With Us", href: "/work-with-us" },
 ];
 
 export default function Nav() {
@@ -34,7 +35,7 @@ export default function Nav() {
           </li>
         ))}
       </ul>
-      <a href="/placements" style={{
+      <a href="/work-with-us" style={{
         fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 500,
         backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "10px 20px", textDecoration: "none",
       }}>Work with us</a>

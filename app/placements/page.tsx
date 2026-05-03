@@ -56,48 +56,14 @@ export default function Placements() {
           </div>
         </div>
 
-        {/* CONTACT FORM */}
-        <div style={{ padding: "64px 56px" }}>
-          <div className="contact-grid">
-            <div>
-              <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 20 }}>Work with us</p>
-              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 36, color: "#1a1a18", lineHeight: 1.2, marginBottom: 20, fontWeight: 400 }}>
-                Ready to work<br />together?
-              </h2>
-              <p style={{ fontSize: 14, color: "#7a7a74", lineHeight: 1.7, marginBottom: 32 }}>
-                Tell us about your organization and the challenge you&apos;re facing. We&apos;ll follow up within 48 hours to discuss fit and next steps.
-              </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                  <span style={{ color: "#1a6e4a", fontSize: 14 }}>📍</span>
-                  <span style={{ fontSize: 13, color: "#7a7a74" }}>3301 N Charles St, Baltimore, MD 21218</span>
-                </div>
-                <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                  <span style={{ color: "#1a6e4a", fontSize: 14 }}>✉</span>
-                  <span style={{ fontSize: 13, color: "#7a7a74" }}>emeraldconsultinggroup.jhu@gmail.com</span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                <input className="form-input" type="text" placeholder="First name" />
-                <input className="form-input" type="text" placeholder="Last name" />
-              </div>
-              <input className="form-input" type="text" placeholder="Organization" />
-              <input className="form-input" type="email" placeholder="Email address" />
-              <select className="form-input">
-                <option value="" disabled selected>Type of inquiry</option>
-                <option>Client engagement</option>
-                <option>Join as a consultant</option>
-                <option>Partnership</option>
-                <option>Other</option>
-              </select>
-              <textarea className="form-input" placeholder="Tell us about your project or challenge..." style={{ height: 110, resize: "none" }} />
-              <button style={{ width: "100%", backgroundColor: "#1a6e4a", color: "#e8f5ef", border: "none", padding: "15px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 500, cursor: "pointer", fontFamily: "'DM Sans', sans-serif" }}>
-                Submit inquiry
-              </button>
-            </div>
+        <div style={{ backgroundColor: "#1a1a18", padding: "56px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>
+          <div>
+            <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(232,245,239,0.5)", fontWeight: 500, marginBottom: 10 }}>Interested?</p>
+            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 30, color: "#f0ede4", fontWeight: 400 }}>Want to work with us?</h2>
           </div>
+          <a href="/work-with-us" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 32px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
+            Get in touch →
+          </a>
         </div>
 
         <Footer />

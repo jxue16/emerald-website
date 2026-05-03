@@ -69,7 +69,7 @@ export default function Home() {
               We partner with startups and Fortune 500 companies to deliver rigorous, data-driven strategy — developed by the next generation of top consultants.
             </p>
             <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-              <a href="/placements" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 28px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
+              <a href="/work-with-us" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 28px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
                 Work with us
               </a>
               <a href="/past-projects" style={{ backgroundColor: "transparent", color: "#9a9a90", border: "0.5px solid #444440", padding: "14px 28px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
