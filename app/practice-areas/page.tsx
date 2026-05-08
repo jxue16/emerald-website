@@ -49,7 +49,7 @@ export default function PracticeAreas() {
         .practice-card:hover { background: #1a1a18; }
         .practice-card:hover .pc-num { color: #1a6e4a; }
         .practice-card:hover .pc-title { display: none; }
-        .practice-card:hover .pc-desc { display: block; }
+        .practice-card:hover .pc-desc { display: block; color: #8a8a84; }
         .pc-desc { display: none; color: #8a8a84; font-size: 13px; line-height: 1.7; }
 
         .practice-grid {
@@ -75,7 +75,7 @@ export default function PracticeAreas() {
         }
       `}</style>
 
-      <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#1a1a18", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 26, color: "#1a1a18", lineHeight: 1.25, fontWeight: 400, marginBottom: 12 }}>
         <Nav />
 
         {/* PAGE HEADER */}
@@ -124,17 +124,6 @@ export default function PracticeAreas() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* CTA */}
-        <div style={{ backgroundColor: "#1a1a18", padding: "56px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>
-          <div>
-            <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(232,245,239,0.5)", fontWeight: 500, marginBottom: 10 }}>Ready to start?</p>
-            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 30, color: "#f0ede4", fontWeight: 400 }}>Let&apos;s work together.</h2>
-          </div>
-          <a href="/work-with-us" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 32px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
-            Get in touch →
-          </a>
         </div>
 
         <Footer />
