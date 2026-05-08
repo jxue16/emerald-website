@@ -75,7 +75,7 @@ export default function PracticeAreas() {
         }
       `}</style>
 
-      <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 26, color: "#1a1a18", lineHeight: 1.25, fontWeight: 400, marginBottom: 12 }}>
+      <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#1a1a18", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <Nav />
 
         {/* PAGE HEADER */}
@@ -93,7 +93,7 @@ export default function PracticeAreas() {
             <div key={p.num} className="practice-card">
               <div className="pc-num" style={{ fontSize: 11, color: "#ccc", letterSpacing: "0.1em", fontWeight: 500 }}>{p.num}</div>
               <div>
-                <div className="pc-title" style={{ fontFamily: "'DM Serif Display', serif", fontSize: 26, color: "#f0ede4", lineHeight: 1.25, fontWeight: 400, marginBottom: 12 }}>{p.title}</div>
+                <div className="pc-title" style={{ fontFamily: "'DM Serif Display', serif", fontSize: 26, color: "#1a1a18", lineHeight: 1.25, fontWeight: 400, marginBottom: 12 }}>{p.title}</div>
                 <div className="pc-desc">{p.desc}</div>
               </div>
             </div>
