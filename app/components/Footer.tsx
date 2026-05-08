@@ -7,9 +7,9 @@ export default function Footer() {
         </div>
         <div style={{ display: "flex", gap: 24 }}>
           {[
-            { label: "LinkedIn", href: "https://linkedin.com" },
-            { label: "Instagram", href: "https://instagram.com" },
-            { label: "Apply", href: "/placements" },
+            { label: "LinkedIn", href: "https://www.linkedin.com/company/emerald-consulting-group-jhu" },
+            { label: "Instagram", href: "https://www.instagram.com/emerald.jhu/" },
+            { label: "Apply", href: "/work-with-us" },
           ].map((l) => (
             <a key={l.label} href={l.href} style={{
               fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase",

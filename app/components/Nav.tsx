@@ -37,7 +37,7 @@ export default function Nav() {
       <a href="/work-with-us" style={{
         fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", fontWeight: 500,
         backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "10px 20px", textDecoration: "none",
-      }}>Work with us</a>
+      }}>Contact us</a>
     </nav>
   );
 }

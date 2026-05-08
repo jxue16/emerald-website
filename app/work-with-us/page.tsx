@@ -23,7 +23,7 @@ export default function WorkWithUs() {
         <div style={{ backgroundColor: "#1a1a18", padding: "64px 56px 56px" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 16, fontWeight: 500 }}>Get in touch</p>
           <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
-            Work with <em style={{ fontStyle: "italic", color: "#6aac88" }}>us.</em>
+            Contact <em style={{ fontStyle: "italic", color: "#6aac88" }}>us.</em>
           </h1>
           <p style={{ fontSize: 14, color: "#9a9a90", lineHeight: 1.8, maxWidth: 520, marginTop: 20 }}>
             Whether you&apos;re a company looking for strategic support or a student interested in joining, we&apos;d love to hear from you.
