@@ -48,7 +48,7 @@ export default function PracticeAreas() {
         }
         .practice-card:hover { background: #1a1a18; }
         .practice-card:hover .pc-num { color: #1a6e4a; }
-        .practice-card:hover .pc-title { display: none; }
+        .practice-card:hover .pc-title { color: #f0ede4; }
         .practice-card:hover .pc-desc { display: block; color: #8a8a84; }
         .pc-desc { display: none; color: #8a8a84; font-size: 13px; line-height: 1.7; }
 
