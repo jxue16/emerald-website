@@ -1,13 +1,14 @@
+"use client";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
 const practices = [
-  { num: "01", title: "Growth & Go-to-Market Strategy" },
-  { num: "02", title: "Operational & Financial Modeling" },
-  { num: "03", title: "Market & Competitive Analysis" },
-  { num: "04", title: "Data Analytics & Visualization" },
-  { num: "05", title: "Digital & Product Strategy" },
-  { num: "06", title: "Process Automation" },
+  { num: "01", title: "Growth & Go-to-Market Strategy", desc: "Positioning, pricing, and launch plans that drive adoption and define where to win." },
+  { num: "02", title: "Operational & Financial Modeling", desc: "Unit economics, forecasts, and scenario models to support confident planning." },
+  { num: "03", title: "Market & Competitive Analysis", desc: "Mapping customers, competitors, and trends to surface opportunities and sharpen decisions." },
+  { num: "04", title: "Data Analytics & Visualization", desc: "Clean insights, dashboards, and storytelling visuals that accelerate decision-making." },
+  { num: "05", title: "Digital & Product Strategy", desc: "Product direction and digital roadmaps grounded in user needs and business impact." },
+  { num: "06", title: "Process Automation", desc: "Streamlining operations with modern tooling from data scraping to workflow automatio." },
 ];
 
 const values = [
@@ -36,20 +37,41 @@ export default function PracticeAreas() {
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: #f7f5ef; }
 
-        .practice-card {
-          background: #f7f5ef;
-          padding: 52px 44px;
-          transition: background 0.2s;
+        .flip-card {
+          min-height: 220px;
+          perspective: 1000px;
           cursor: default;
+        }
+        .flip-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          min-height: 220px;
+          transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-inner {
+          transform: rotateY(180deg);
+        }
+        .flip-front, .flip-back {
+          position: absolute;
+          inset: 0;
+          padding: 52px 44px;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          min-height: 220px;
         }
-        .practice-card:hover { background: #1a1a18; }
-        .practice-card:hover .pc-num { color: #1a6e4a; }
-        .practice-card:hover .pc-title { color: #f0ede4; }
-        .practice-card:hover .pc-arrow { opacity: 1 !important; color: #1a6e4a; }
+        .flip-front {
+          background: #f7f5ef;
+        }
+        .flip-back {
+          background: #1a1a18;
+          transform: rotateY(180deg);
+          justify-content: center;
+          gap: 16px;
+        }
 
         .practice-grid {
           display: grid;
@@ -89,11 +111,17 @@ export default function PracticeAreas() {
         {/* PRACTICE GRID — large tiles, no descriptions */}
         <div className="practice-grid">
           {practices.map((p) => (
-            <div key={p.num} className="practice-card">
-              <div className="pc-num" style={{ fontSize: 11, color: "#ccc", letterSpacing: "0.1em", fontWeight: 500 }}>{p.num}</div>
-              <div>
-                <div className="pc-title" style={{ fontFamily: "'DM Serif Display', serif", fontSize: 26, color: "#1a1a18", lineHeight: 1.25, fontWeight: 400, marginBottom: 16 }}>{p.title}</div>
-                <div className="pc-arrow" style={{ fontSize: 16, color: "#1a6e4a", opacity: 0, transition: "opacity 0.2s" }}>→</div>
+            <div key={p.num} className="flip-card">
+              <div className="flip-inner">
+                <div className="flip-front">
+                  <div style={{ fontSize: 11, color: "#ccc", letterSpacing: "0.1em", fontWeight: 500 }}>{p.num}</div>
+                  <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 26, color: "#1a1a18", lineHeight: 1.25, fontWeight: 400 }}>{p.title}</div>
+                </div>
+                <div className="flip-back">
+                  <div style={{ fontSize: 11, color: "#1a6e4a", letterSpacing: "0.1em", fontWeight: 500 }}>{p.num}</div>
+                  <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 20, color: "#f0ede4", lineHeight: 1.3, fontWeight: 400 }}>{p.title}</div>
+                  <div style={{ fontSize: 13, color: "#8a8a84", lineHeight: 1.7 }}>{p.desc}</div>
+                </div>
               </div>
             </div>
           ))}
