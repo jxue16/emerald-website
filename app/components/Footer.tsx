@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#0f0f0e", padding: "28px 40px" }}>
+    <footer style={{ background: "radial-gradient(85% 240% at 100% 0%, rgba(34,140,92,0.26) 0%, transparent 60%), linear-gradient(180deg, #2c2b25 0%, #201f1c 68%, #191815 100%)", padding: "28px 40px" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
         <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 15, color: "#6a6a64" }}>
           <span style={{ color: "#1a6e4a" }}>Emerald</span> Consulting Group
@@ -11,9 +11,9 @@ export default function Footer() {
             { label: "Instagram", href: "https://www.instagram.com/emerald.jhu/" },
             { label: "Apply", href: "/work-with-us" },
           ].map((l) => (
-            <a key={l.label} href={l.href} style={{
+            <a key={l.label} href={l.href} className="footer-link" style={{
               fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase",
-              color: "#4a4a46", textDecoration: "none", fontWeight: 500,
+              color: "#d5d2c8", textDecoration: "none", fontWeight: 500,
             }}>{l.label}</a>
           ))}
         </div>

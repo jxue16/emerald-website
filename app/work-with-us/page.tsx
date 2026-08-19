@@ -9,18 +9,29 @@ export default function WorkWithUs() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: #f7f5ef; }
-        .form-input { display: block; width: 100%; background: white; border: 0.5px solid #d0cec4; padding: 13px 15px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: #1a1a18; margin-bottom: 12px; outline: none; appearance: none; }
-        .form-input:focus { border-color: #1a6e4a; }
+        .form-input {
+          display: block; width: 100%; background: white; border: 0.5px solid #d0cec4; border-radius: var(--radius-sm);
+          padding: 13px 15px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: #2a2925; margin-bottom: 12px;
+          outline: none; appearance: none; box-shadow: 0 1px 2px rgba(42,41,37,0.03);
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-input:focus { border-color: #1a6e4a; box-shadow: 0 0 0 4px rgba(26,110,74,0.12), 0 1px 2px rgba(42,41,37,0.03); }
+        .submit-btn {
+          border-radius: var(--radius-sm);
+          box-shadow: 0 1px 2px rgba(15,61,40,0.15), 0 14px 24px -12px rgba(15,61,40,0.5);
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(15,61,40,0.2), 0 20px 30px -12px rgba(15,61,40,0.55); }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
         @media (max-width: 768px) {
           .contact-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
         }
       `}</style>
-      <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#1a1a18", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#2a2925", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <Nav />
 
         {/* PAGE HEADER */}
-        <div style={{ backgroundColor: "#1a1a18", padding: "64px 56px 56px" }}>
+        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px 56px 56px" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 16, fontWeight: 500 }}>Get in touch</p>
           <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
             Contact <em style={{ fontStyle: "italic", color: "#6aac88" }}>us.</em>
@@ -35,7 +46,7 @@ export default function WorkWithUs() {
           <div className="contact-grid">
             <div>
               <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 20 }}>Contact us</p>
-              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 36, color: "#1a1a18", lineHeight: 1.2, marginBottom: 20, fontWeight: 400 }}>
+              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 36, color: "#2a2925", lineHeight: 1.2, marginBottom: 20, fontWeight: 400 }}>
                 Ready to work<br />together?
               </h2>
               <p style={{ fontSize: 14, color: "#7a7a74", lineHeight: 1.7, marginBottom: 32 }}>
@@ -67,7 +78,7 @@ export default function WorkWithUs() {
                 <option>Other</option>
               </select>
               <textarea className="form-input" placeholder="Tell us about your project or challenge..." style={{ height: 110, resize: "none" }} />
-              <button style={{ width: "100%", backgroundColor: "#1a6e4a", color: "#e8f5ef", border: "none", padding: "15px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 500, cursor: "pointer", fontFamily: "'DM Sans', sans-serif" }}>
+              <button className="submit-btn" style={{ width: "100%", backgroundColor: "#1a6e4a", color: "#e8f5ef", border: "none", padding: "15px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 500, cursor: "pointer", fontFamily: "'DM Sans', sans-serif" }}>
                 Submit inquiry
               </button>
             </div>

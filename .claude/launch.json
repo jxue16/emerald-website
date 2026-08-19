@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "agora-app",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["-C", "/Users/25jonnyx/Documents/GitHub/agora", "dev"],
+      "port": 8083
+    },
+    {
+      "name": "emerald-website",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["-C", "/Users/25jonnyx/emerald-website", "dev"],
+      "port": 3000
+    }
+  ]
+}

@@ -6,7 +6,7 @@ const timelineEvents = [
     year: "2022",
     title: "Founded",
     body: "Emerald Consulting Group was founded in April 2022 by Johns Hopkins University undergraduates Aryan Anand, Dhruv Dubey, and Zayeed Akhter. Established to bring analytical innovation to healthcare strategy, the organization partnered with clients to deliver smarter, data-driven decisions with measurable impact.",
-    image: "/about/2022.png",
+    image: "/about/2022.jpg",
     imageAlt: "Emerald founding team 2022",
   },
   {
@@ -17,18 +17,18 @@ const timelineEvents = [
     imageAlt: "Emerald team 2023",
   },
   {
-    year: "2024",
+    year: "2025",
     title: "Expansion",
     body: "Building on prior momentum, we expanded into new sectors — including energy, education, and artificial intelligence — while growing to a 30-member team of dedicated consultants. With greater capacity and deeper expertise, we supported a client base totaling over $45 billion in combined market capitalization.",
-    image: "/about/2024.jpeg",
-    imageAlt: "Emerald team 2024",
+    image: "/about/2024.jpg",
+    imageAlt: "Emerald team 2025",
   },
   {
-    year: "2025",
+    year: "2026",
     title: "Today",
     body: "Our mission is rooted in a dual commitment: to develop the next generation of consultants at Johns Hopkins University through immersive, hands-on engagement, and to help organizations of any size unlock their full potential through data-driven innovation and insightful strategic guidance.",
     image: "/about/2025.jpg",
-    imageAlt: "Emerald team 2025",
+    imageAlt: "Emerald team 2026",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function About() {
         .mission-grid { display: grid; grid-template-columns: 1fr 1fr; }
 
         /* Timeline */
-        .timeline { position: relative; padding: 80px 56px; background: #111110; }
+        .timeline { position: relative; padding: 80px 56px; background: #242320; }
         .timeline::before {
           content: '';
           position: absolute;
@@ -86,7 +86,7 @@ export default function About() {
           background: #1a6e4a;
           border-radius: 50%;
           border: 2px solid #1a6e4a;
-          box-shadow: 0 0 0 4px #111110;
+          box-shadow: 0 0 0 4px #242320;
         }
         .tl-year {
           font-size: 11px;
@@ -107,8 +107,8 @@ export default function About() {
           line-height: 1.2;
         }
         .tl-body {
-          font-size: 14px;
-          color: #8a8a84;
+          font-size: 16.5px;
+          color: #8f8f89;
           line-height: 1.8;
         }
 
@@ -118,24 +118,11 @@ export default function About() {
           object-fit: cover;
           display: block;
           filter: grayscale(20%);
-          border: 0.5px solid #2a2a28;
+          border-radius: var(--radius-lg);
+          box-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 24px 40px -18px rgba(0,0,0,0.55);
+          transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
-        .tl-img-placeholder {
-          width: 100%;
-          aspect-ratio: 4/3;
-          background: #1e1e1c;
-          border: 0.5px solid #2a2a28;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .tl-img-placeholder span {
-          font-size: 12px;
-          color: #3a3a38;
-          letter-spacing: 0.08em;
-          font-family: 'DM Sans', sans-serif;
-        }
-
+        .tl-img:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 30px 46px -16px rgba(0,0,0,0.6); }
         @media (max-width: 900px) {
           .mission-grid { grid-template-columns: 1fr !important; }
           .timeline::before { left: 20px; }
@@ -150,11 +137,11 @@ export default function About() {
         }
       `}</style>
 
-      <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#1a1a18", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#2a2925", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <Nav />
 
         {/* PAGE HEADER */}
-        <div style={{ backgroundColor: "#1a1a18", padding: "64px 56px 56px" }}>
+        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px 56px 56px" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 16, fontWeight: 500 }}>Who we are</p>
           <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1, maxWidth: 600 }}>
             About <em style={{ fontStyle: "italic", color: "#6aac88" }}>Emerald.</em>
@@ -165,7 +152,7 @@ export default function About() {
         <div className="mission-grid" style={{ borderBottom: "0.5px solid #d0cec4" }}>
           <div style={{ padding: "64px 56px", borderRight: "0.5px solid #d0cec4" }}>
             <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 20 }}>Our mission</p>
-            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 30, color: "#1a1a18", lineHeight: 1.2, marginBottom: 24, fontWeight: 400 }}>
+            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 30, color: "#2a2925", lineHeight: 1.2, marginBottom: 24, fontWeight: 400 }}>
               Developing the next generation of{" "}
               <em style={{ fontStyle: "italic", color: "#1a6e4a" }}>elite consultants.</em>
             </h2>
@@ -205,28 +192,11 @@ export default function About() {
 
               {/* IMAGE */}
               <div className="tl-image">
-                {/* Once you add images to public/about/, the img tag below will render them.
-                    Until then it shows a placeholder. To activate: remove the placeholder div
-                    and uncomment the img tag. */}
-                <div className="tl-img-placeholder">
-                  <span>Photo coming soon</span>
-                </div>
-                {/* <img src={event.image} alt={event.imageAlt} className="tl-img" /> */}
+                <img src={event.image} alt={event.imageAlt} className="tl-img" />
               </div>
 
             </div>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div style={{ backgroundColor: "#1a6e4a", padding: "56px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>
-          <div>
-            <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(232,245,239,0.6)", fontWeight: 500, marginBottom: 10 }}>Meet the team</p>
-            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 32, color: "#e8f5ef", fontWeight: 400 }}>The people behind the work.</h2>
-          </div>
-          <a href="/team" style={{ backgroundColor: "#0f3d28", color: "#6aac88", padding: "14px 32px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
-            Meet our team →
-          </a>
         </div>
 
         <Footer />
