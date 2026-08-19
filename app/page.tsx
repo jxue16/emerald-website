@@ -2,11 +2,6 @@
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
-// Where the recruiting banner sends applicants. Swap for the live
-// application form (Google Form, Handshake posting, etc.) when it opens.
-const APPLICATION_URL = "/work-with-us";
-const RECRUITING_TERM = "Fall 2026 analyst cohort";
-
 const practices = [
   { num: "01", title: "Growth & Go-to-Market Strategy", desc: "Positioning, pricing, and launch plans that drive adoption and define where to win." },
   { num: "02", title: "Operational & Financial Modeling", desc: "Unit economics, forecasts, and scenario models to support confident planning." },
@@ -61,47 +56,6 @@ export default function Home() {
           position: absolute; left: 0; right: 0; bottom: 0; height: 150px; z-index: 2;
           background: linear-gradient(to bottom, transparent, rgba(20,45,34,0.45));
           pointer-events: none;
-        }
-
-        .recruit-banner {
-          position: relative; flex-shrink: 0; overflow: hidden;
-          background: #0f3d28; padding: 13px 56px;
-          display: flex; align-items: center; justify-content: center; gap: 16px;
-          flex-wrap: wrap; text-decoration: none;
-        }
-        .recruit-banner::after {
-          content: ''; position: absolute; inset: 0; background-image: var(--grain-uri);
-          opacity: 0.07; mix-blend-mode: overlay; pointer-events: none;
-        }
-        .recruit-banner::before {
-          content: ''; position: absolute; left: 0; right: 0; bottom: -22px; height: 22px; z-index: 2;
-          background: linear-gradient(to bottom, rgba(15,61,40,0.35), transparent); pointer-events: none;
-        }
-        .recruit-dot {
-          width: 7px; height: 7px; border-radius: 50%; background: #6aac88; flex-shrink: 0;
-          box-shadow: 0 0 0 0 rgba(106,172,136,0.6); animation: recruit-pulse 2.4s ease-out infinite;
-        }
-        @keyframes recruit-pulse {
-          0%   { box-shadow: 0 0 0 0 rgba(106,172,136,0.55); }
-          70%  { box-shadow: 0 0 0 7px rgba(106,172,136,0); }
-          100% { box-shadow: 0 0 0 0 rgba(106,172,136,0); }
-        }
-        .recruit-label {
-          font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-          color: #6aac88; font-weight: 500; white-space: nowrap;
-        }
-        .recruit-text { font-size: 13px; color: rgba(232,245,239,0.82); }
-        .recruit-cta {
-          font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
-          color: #e8f5ef; border-bottom: 0.5px solid rgba(232,245,239,0.35);
-          padding-bottom: 2px; white-space: nowrap; transition: border-color 0.2s ease;
-        }
-        .recruit-cta .arrow { display: inline-block; transition: transform 0.25s ease; margin-left: 6px; }
-        .recruit-banner:hover .recruit-cta { border-color: #6aac88; }
-        .recruit-banner:hover .arrow { transform: translateX(4px); }
-        @media (prefers-reduced-motion: reduce) {
-          .recruit-dot { animation: none; }
-          .recruit-cta .arrow { transition: none; }
         }
 
         #practice-areas { position: relative; }
@@ -213,18 +167,6 @@ export default function Home() {
 
       <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#2a2925", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <Nav />
-
-        {/* RECRUITING BANNER */}
-        <a className="recruit-banner" href={APPLICATION_URL}>
-          <span className="recruit-dot" aria-hidden="true" />
-          <span className="recruit-label">Now recruiting</span>
-          <span className="recruit-text">
-            Applications are open for our {RECRUITING_TERM}.
-          </span>
-          <span className="recruit-cta">
-            Apply<span className="arrow" aria-hidden="true">→</span>
-          </span>
-        </a>
 
         {/* HERO */}
         <section className="hero-grid" style={{ flex: 1 }}>

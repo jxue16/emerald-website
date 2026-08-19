@@ -1,6 +1,14 @@
 export default function Footer() {
   return (
-    <footer style={{ background: "radial-gradient(85% 240% at 100% 0%, rgba(34,140,92,0.26) 0%, transparent 60%), linear-gradient(180deg, #2c2b25 0%, #201f1c 68%, #191815 100%)", padding: "28px 40px" }}>
+    <>
+      <style>{`
+        .site-footer { padding: 28px 40px; }
+        @media (max-width: 768px) {
+          .site-footer { padding: 22px 18px; }
+          .footer-meta { width: 100%; }
+        }
+      `}</style>
+    <footer className="site-footer" style={{ background: "radial-gradient(85% 240% at 100% 0%, rgba(34,140,92,0.26) 0%, transparent 60%), linear-gradient(180deg, #2c2b25 0%, #201f1c 68%, #191815 100%)" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
         <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 15, color: "#6a6a64" }}>
           <span style={{ color: "#1a6e4a" }}>Emerald</span> Consulting Group
@@ -17,10 +25,11 @@ export default function Footer() {
             }}>{l.label}</a>
           ))}
         </div>
-        <div style={{ fontSize: 11, color: "#3a3a38", letterSpacing: "0.05em" }}>
+        <div className="footer-meta" style={{ fontSize: 11, color: "#3a3a38", letterSpacing: "0.05em" }}>
           © {new Date().getFullYear()} Emerald Consulting Group · Johns Hopkins University
         </div>
       </div>
     </footer>
+    </>
   );
 }
