@@ -41,9 +41,13 @@ export default function About() {
         body { background: #f7f5ef; }
 
         .mission-grid { display: grid; grid-template-columns: 1fr 1fr; }
+        @media (max-width: 900px) {
+          .mission-cell { border-right: none !important; border-bottom: 0.5px solid #d0cec4; }
+          .mission-grid > div { padding-top: 44px !important; padding-bottom: 44px !important; }
+        }
 
         /* Timeline */
-        .timeline { position: relative; padding: 80px 56px; background: #242320; }
+        .timeline { position: relative; padding: 80px var(--pad-x); background: #242320; }
         .timeline::before {
           content: '';
           position: absolute;
@@ -125,15 +129,40 @@ export default function About() {
         .tl-img:hover { transform: translateY(-4px); box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 30px 46px -16px rgba(0,0,0,0.6); }
         @media (max-width: 900px) {
           .mission-grid { grid-template-columns: 1fr !important; }
-          .timeline::before { left: 20px; }
-          .tl-row { grid-template-columns: 40px 1fr; gap: 24px; margin-bottom: 64px; }
-          .tl-row.reverse .tl-text { order: unset; padding: 0; }
+          /* The spine has to line up with the dots, which sit inside the page
+             gutter — a fixed 20px left it stranded outside the content. */
+          .timeline::before { left: calc(var(--pad-x) + 20px); transform: none; }
+          .tl-row {
+            grid-template-columns: 40px minmax(0, 1fr);
+            gap: 6px 20px; margin-bottom: 56px;
+            /* Top-align so the year label reads as a heading for the entry
+               rather than floating beside the middle of the paragraph. */
+            align-items: start;
+          }
+          .tl-row.reverse .tl-text { order: unset; }
           .tl-row.reverse .tl-node { order: unset; }
-          .tl-row.reverse .tl-image { order: unset; padding: 0; display: none; }
-          .tl-text { padding: 0; }
-          .tl-image { display: none; }
-          .tl-node { grid-column: 1; }
-          .tl-text { grid-column: 2; }
+          .tl-row.reverse .tl-image { order: unset; }
+          .tl-text, .tl-image, .tl-row.reverse .tl-text, .tl-row.reverse .tl-image { padding: 0; }
+          .tl-node { grid-column: 1; grid-row: 1; flex-direction: row; gap: 0; align-items: flex-start; justify-content: flex-start; padding-top: 3px; }
+          .tl-dot { margin-left: 15px; }
+          .tl-year { position: absolute; left: calc(100% + 20px); top: 0; }
+          .tl-text { grid-column: 2; grid-row: 1; padding-top: 26px !important; }
+          /* The story is half photographs — keep them, stacked under the copy,
+             instead of dropping them entirely on the devices most people use. */
+          .tl-image { grid-column: 2; grid-row: 2; margin-top: 20px; }
+          .tl-title { font-size: 23px; }
+          .tl-body { font-size: 15px; line-height: 1.7; }
+        }
+        @media (max-width: 620px) {
+          .timeline { padding: 56px var(--pad-x) 64px; }
+          .tl-row { grid-template-columns: 26px minmax(0, 1fr); gap: 6px 14px; margin-bottom: 44px; }
+          .timeline::before { left: calc(var(--pad-x) + 5px); }
+          .tl-dot { margin-left: 0; }
+          .tl-year { left: calc(100% + 14px); }
+          .tl-img { aspect-ratio: 3/2; border-radius: var(--radius-md); }
+        }
+        @media (hover: none) {
+          .tl-img:hover { transform: none; }
         }
       `}</style>
 
@@ -141,18 +170,18 @@ export default function About() {
         <Nav />
 
         {/* PAGE HEADER */}
-        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px 56px 56px" }}>
+        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px var(--pad-x) 56px" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 16, fontWeight: 500 }}>Who we are</p>
-          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1, maxWidth: 600 }}>
+          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(34px, 9vw, 48px)", color: "#f0ede4", fontWeight: 400, lineHeight: 1.1, maxWidth: 600 }}>
             About <em style={{ fontStyle: "italic", color: "#6aac88" }}>Emerald.</em>
           </h1>
         </div>
 
         {/* MISSION SPLIT */}
         <div className="mission-grid" style={{ borderBottom: "0.5px solid #d0cec4" }}>
-          <div style={{ padding: "64px 56px", borderRight: "0.5px solid #d0cec4" }}>
+          <div className="mission-cell" style={{ padding: "64px var(--pad-x)", borderRight: "0.5px solid #d0cec4" }}>
             <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 20 }}>Our mission</p>
-            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 30, color: "#2a2925", lineHeight: 1.2, marginBottom: 24, fontWeight: 400 }}>
+            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(24px, 6vw, 30px)", color: "#2a2925", lineHeight: 1.2, marginBottom: 24, fontWeight: 400 }}>
               Developing the next generation of{" "}
               <em style={{ fontStyle: "italic", color: "#1a6e4a" }}>elite consultants.</em>
             </h2>
@@ -160,7 +189,7 @@ export default function About() {
               Led by a board of exclusively MBB-experienced leaders, our mission is rooted in a dual commitment: develop top consultants at Johns Hopkins through immersive, hands-on engagement — and help organizations of any size unlock their full potential through data-driven strategy.
             </p>
           </div>
-          <div style={{ padding: "64px 56px" }}>
+          <div style={{ padding: "64px var(--pad-x)" }}>
             <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 20 }}>What we do</p>
             <p style={{ fontSize: 14, color: "#7a7a74", lineHeight: 1.8, marginBottom: 20 }}>
               Emerald Consulting Group is the premier student-led strategy consulting organization at Johns Hopkins University. Our experience spans 25+ clients, from startups to Fortune 500 firms, totaling over $1 trillion in combined market capitalization.

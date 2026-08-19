@@ -9,7 +9,7 @@ const companies = [
   { name: "Boston Consulting Group", domain: "bcg.com" },
   { name: "Deloitte", domain: "deloitte.com" },
   { name: "Booz Allen Hamilton", domain: "boozallen.com" },
-  { name: "Amazon", domain: "amazon.com" },
+  { name: "JPMorgan Chase", domain: "jpmorganchase.com" },
   { name: "Oliver Wyman", domain: "oliverwyman.com" },
   { name: "Accenture", domain: "accenture.com" },
   { name: "PwC Strategy&", domain: "pwc.com" },
@@ -17,7 +17,7 @@ const companies = [
   { name: "Google", domain: "google.com" },
   { name: "Kearney", domain: "kearney.com" },
   { name: "EY-Parthenon", domain: "ey.com" },
-  { name: "Microsoft", domain: "microsoft.com" },
+  { name: "ING", domain: "ing.com" },
   { name: "Mastercard", domain: "mastercard.com" },
 ];
 
@@ -64,7 +64,7 @@ export default function Placements() {
         /* ── HERO (softened dark, for contrast) ─── */
         .plc-hero {
           position: relative; overflow: hidden; flex: 0 0 auto;
-          padding: 92px 56px 88px; color: #f0ede4;
+          padding: 92px var(--pad-x) 88px; color: #f0ede4;
           background:
             radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%),
             radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%),
@@ -77,14 +77,14 @@ export default function Placements() {
         }
         .plc-hero-inner { position: relative; z-index: 1; }
         .plc-hero .eyebrow { color: #6aac88; }
-        .plc-hero .display { font-size: 56px; color: #f0ede4; margin: 18px 0 22px; }
+        .plc-hero .display { font-size: clamp(36px, 9.5vw, 56px); color: #f0ede4; margin: 18px 0 22px; }
         .plc-hero .display em { color: #6aac88; }
         .plc-hero .lede { font-size: 14.5px; color: #a9a79c; line-height: 1.8; max-width: 520px; }
         .plc-hero .hero-meta { display: flex; align-items: center; gap: 12px; margin-top: 26px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,228,0.45); font-weight: 500; }
         .plc-hero .hero-meta .rule { width: 34px; height: 0.5px; background: #6aac88; opacity: 0.75; }
 
         /* ── FIRMS (logo wall) ────────────────── */
-        .firms { position: relative; overflow: hidden; flex: 0 0 auto; padding: 74px 56px 90px; background: #f2f0e9; border-top: 0.5px solid #d9d6cc; border-bottom: 0.5px solid #d9d6cc; }
+        .firms { position: relative; overflow: hidden; flex: 0 0 auto; padding: 74px var(--pad-x) 90px; background: #f2f0e9; border-top: 0.5px solid #d9d6cc; border-bottom: 0.5px solid #d9d6cc; }
         .firms .eyebrow { position: relative; z-index: 1; margin-bottom: 42px; }
         .logo-wall { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
         .logo-cell {
@@ -103,9 +103,9 @@ export default function Placements() {
         .logo-cell span { font-size: 12px; color: #6a6a62; font-weight: 500; text-align: center; line-height: 1.3; }
 
         /* ── ALUMNI ───────────────────────────── */
-        .alumni { position: relative; overflow: hidden; flex: 1 0 auto; padding: 78px 56px 98px; background: #f7f5ef; }
+        .alumni { position: relative; overflow: hidden; flex: 1 0 auto; padding: 78px var(--pad-x) 98px; background: #f7f5ef; }
         .alumni-head { position: relative; z-index: 1; }
-        .alumni .display { font-size: 34px; margin-top: 14px; }
+        .alumni .display { font-size: clamp(26px, 7vw, 34px); margin-top: 14px; }
         .alumni-sub { font-size: 13.5px; color: #8a8a82; margin-top: 12px; max-width: 460px; line-height: 1.7; }
         .alumni-list { position: relative; z-index: 1; margin-top: 48px; display: flex; flex-direction: column; gap: 16px; }
         .alumni-row {
@@ -133,17 +133,31 @@ export default function Placements() {
 
         @media (max-width: 960px) { .logo-wall { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 860px) {
-          .plc-hero .display { font-size: 42px; }
           .alumni-row { grid-template-columns: 1fr; gap: 18px; padding: 28px; }
           .alumni-year { font-size: 38px; }
           .alumni-names { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 560px) {
-          .plc-hero { padding: 62px 28px 56px; }
-          .firms { padding: 56px 28px 68px; }
-          .alumni { padding: 60px 28px 72px; }
-          .logo-wall { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 620px) {
+          .plc-hero { padding: 58px var(--pad-x) 54px; }
+          .firms { padding: 52px var(--pad-x) 60px; }
+          .alumni { padding: 54px var(--pad-x) 64px; }
+          .logo-wall { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+          .logo-cell { min-height: 104px; padding: 20px 12px; gap: 12px; }
+          .logo-cell img { height: 26px; }
+          .logo-cell img.wordmark { height: 19px; }
+          .alumni-row { padding: 24px 20px; gap: 14px; }
+          /* Two short columns of names beat one very long single column. */
+          .alumni-names { grid-template-columns: repeat(2, 1fr); gap: 4px 12px; }
+          .alumni-name { gap: 9px; padding: 6px 0; }
+          .alumni-avatar { width: 26px; height: 26px; font-size: 9.5px; }
+          .alumni-name-text { font-size: 14px; }
+        }
+        @media (max-width: 380px) {
           .alumni-names { grid-template-columns: 1fr; }
+        }
+        @media (hover: none) {
+          .logo-cell:hover { transform: none; }
+          .logo-cell:hover img { transform: none; }
         }
       `}</style>
 

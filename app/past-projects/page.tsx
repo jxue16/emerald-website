@@ -205,11 +205,11 @@ export default function PastProjects() {
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body { background: #f7f5ef; }
-        .project-row { padding: 40px 56px; border-bottom: 0.5px solid #d0cec4; transition: background 0.2s; display: grid; grid-template-columns: 80px 1fr 260px; gap: 40px; align-items: start; }
+        .project-row { padding: 40px var(--pad-x); border-bottom: 0.5px solid #d0cec4; transition: background 0.2s; display: grid; grid-template-columns: 80px 1fr 260px; gap: 40px; align-items: start; }
         .project-row:hover { background: #f0ede4; }
 
         /* Featured project */
-        .featured { position: relative; overflow: hidden; padding: 56px; background: radial-gradient(90% 170% at 100% -10%, rgba(38,140,94,0.10) 0%, transparent 55%), linear-gradient(180deg, #faf9f3 0%, #f3f1e9 100%); border-bottom: 0.5px solid #d0cec4; }
+        .featured { position: relative; overflow: hidden; padding: 56px var(--pad-x); background: radial-gradient(90% 170% at 100% -10%, rgba(38,140,94,0.10) 0%, transparent 55%), linear-gradient(180deg, #faf9f3 0%, #f3f1e9 100%); border-bottom: 0.5px solid #d0cec4; }
         .featured-inner { position: relative; display: grid; grid-template-columns: 1.7fr 1fr; align-items: stretch; border: 0.5px solid #e0ddd4; border-radius: 7px; overflow: hidden; background: linear-gradient(180deg, #ffffff 0%, #faf8f2 100%); box-shadow: 0 1px 2px rgba(40,40,36,0.04), 0 34px 54px -32px rgba(40,40,36,0.34); }
         .featured-main { padding: 46px 44px; }
         .feat-eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #1a6e4a; font-weight: 500; margin-bottom: 18px; }
@@ -225,7 +225,7 @@ export default function PastProjects() {
         .feat-tag { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #b0ada2; font-weight: 500; }
 
         /* Filter bar */
-        .filters { padding: 32px 56px 28px; border-bottom: 0.5px solid #d0cec4; background: #faf9f3; }
+        .filters { padding: 32px var(--pad-x) 28px; border-bottom: 0.5px solid #d0cec4; background: #faf9f3; }
         .filter-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 24px; }
         .filter-search { position: relative; flex: 1; min-width: 260px; max-width: 420px; }
         .filter-search input { width: 100%; font-family: inherit; font-size: 14px; color: #2a2925; background: transparent; border: none; border-bottom: 0.5px solid #c8c5ba; padding: 8px 8px 10px 24px; outline: none; transition: border-color 0.2s; }
@@ -248,8 +248,15 @@ export default function PastProjects() {
         .filter-toggle .chev { transition: transform 0.2s ease; }
         .filter-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
         .filter-toggle .count { color: #a8a69c; letter-spacing: 0.06em; }
-        .filter-panel { margin-top: 6px; }
-        @media (prefers-reduced-motion: reduce) { .filter-toggle .chev { transition: none; } }
+        /* 0fr -> 1fr lets the panel animate to its natural height without measuring it in JS. */
+        .filter-panel { display: grid; grid-template-rows: minmax(0, 0fr); transition: grid-template-rows 0.34s cubic-bezier(0.4, 0, 0.2, 1); }
+        .filter-panel.open { grid-template-rows: minmax(0, 1fr); }
+        .filter-panel > .inner { overflow: hidden; min-height: 0; padding-top: 6px; opacity: 0; transform: translateY(-6px); transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .filter-panel.open > .inner { opacity: 1; transform: none; transition-delay: 0.06s; }
+        @media (prefers-reduced-motion: reduce) {
+          .filter-toggle .chev { transition: none; }
+          .filter-panel, .filter-panel > .inner { transition: none; }
+        }
 
         /* One colour per tag family: practice = emerald, sector = clay, term = stone. */
         .practice { --ink: #1a6e4a; --wash: #e4efe9; --wash-hi: #d3e6dc; }
@@ -267,7 +274,7 @@ export default function PastProjects() {
         .tag:hover { background: var(--wash-hi); }
 
         /* Pagination */
-        .pager { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 34px 56px 44px; }
+        .pager { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 34px var(--pad-x) 44px; }
         .pager button { font-family: inherit; font-size: 12px; letter-spacing: 0.06em; font-weight: 500; min-width: 32px; height: 32px; padding: 0 10px; border-radius: 999px; border: 0.5px solid #d0cec4; background: transparent; color: #7a7a74; cursor: pointer; transition: all 0.15s; }
         .pager button:hover:not(:disabled) { border-color: #1a6e4a; color: #1a6e4a; }
         .pager button.on { background: #1a6e4a; border-color: #1a6e4a; color: #f0ede4; }
@@ -292,23 +299,45 @@ export default function PastProjects() {
           .project-row { grid-template-columns: 1fr !important; gap: 20px !important; }
         }
         @media (max-width: 760px) {
-          .filters { padding: 28px 28px 24px; }
-          .filter-group > .label { width: 100%; }
-        }
-        @media (max-width: 760px) {
-          .featured { padding: 40px 28px; }
+          /* The label only stacks above the pills if the row is allowed to wrap;
+             without this the 100%-wide label shoves .pills off-screen entirely. */
+          .filter-group { flex-wrap: wrap; align-items: flex-start; gap: 8px; }
+          .filter-group > .label { width: 100%; padding-top: 0; }
+          .filter-group > .pills { flex: 1 1 100%; }
+          .filter-top { gap: 14px; margin-bottom: 18px; }
+          /* Give search the full row; the count + toggle wrap beneath it. */
+          .filter-search { flex: 1 1 100%; max-width: none; min-width: 0; }
+          /* <16px text makes iOS Safari zoom the page on focus and never zoom back. */
+          .filter-search input { font-size: 16px; }
+          .filter-count { padding-bottom: 0; flex-wrap: wrap; gap: 10px 14px; }
+          .filter-toggle, .filter-clear { min-height: 44px; }
+          .pill { padding: 9px 14px; }
+
+          .featured { padding: 40px var(--pad-x); }
           .featured-inner { grid-template-columns: 1fr; }
-          .featured-aside { border-left: none; border-top: 0.5px solid #ece9e1; flex-direction: row; }
-          .feat-title { font-size: 27px; }
+          .featured-aside { border-left: none; border-top: 0.5px solid #ece9e1; flex-direction: row; padding: 26px; }
+          .featured-aside img { width: 92px; }
+          .featured-main { padding: 30px 24px; }
+          .feat-title { font-size: 25px; gap: 9px; }
+          .feat-title img { height: 24px; }
+          .feat-desc { font-size: 14px; margin-top: 16px; }
+          .feat-meta { gap: 20px; margin-top: 22px; }
+
+          .project-row { padding: 30px var(--pad-x); }
+          .tag { padding: 7px 12px; }
+          .pager { padding: 26px var(--pad-x) 36px; }
+        }
+        @media (hover: none) {
+          .logo-cell:hover, .project-row:hover { background: inherit; }
         }
       `}</style>
       <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#2a2925", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <Nav />
 
         {/* PAGE HEADER */}
-        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px 56px 56px" }}>
+        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px var(--pad-x) 56px" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 16, fontWeight: 500 }}>Our work</p>
-          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
+          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(34px, 9vw, 48px)", color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
             Past <em style={{ fontStyle: "italic", color: "#6aac88" }}>projects.</em>
           </h1>
           <p style={{ fontSize: 14, color: "#9a9a90", lineHeight: 1.8, maxWidth: 520, marginTop: 20 }}>
@@ -317,7 +346,7 @@ export default function PastProjects() {
         </div>
 
         {/* STATS BAR */}
-        <div className="stats-surface" style={{ backgroundColor: "#1a6e4a", padding: "28px 56px", display: "flex", gap: 64, flexWrap: "wrap" }}>
+        <div className="stats-surface" style={{ backgroundColor: "#1a6e4a", padding: "28px var(--pad-x)", display: "flex", gap: "22px 64px", flexWrap: "wrap" }}>
           {[
             { num: "20+", label: "Engagements completed" },
             { num: "10", label: "Sectors served" },
@@ -355,7 +384,7 @@ export default function PastProjects() {
         </section>
 
         {/* FILTERS */}
-        <div id="project-filters" className="filters" style={{ scrollMarginTop: 72 }}>
+        <div id="project-filters" className="filters" style={{ scrollMarginTop: "var(--nav-h)" }}>
           <div className="filter-top">
             <div className="filter-search">
               <svg className="icon" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
@@ -394,7 +423,12 @@ export default function PastProjects() {
             </div>
           </div>
 
-          <div id="filter-panel" className="filter-panel" hidden={!filtersOpen}>
+          <div
+            id="filter-panel"
+            className={filtersOpen ? "filter-panel open" : "filter-panel"}
+            inert={!filtersOpen}
+          >
+          <div className="inner">
           {[
             { label: "Practice", kind: "practice", tags: PRACTICES },
             { label: "Sector", kind: "sector", tags: SECTORS },
@@ -421,12 +455,13 @@ export default function PastProjects() {
             </div>
           ))}
           </div>
+          </div>
         </div>
 
         {/* PROJECTS */}
-        <div id="projects" style={{ flex: 1, scrollMarginTop: 72 }}>
+        <div id="projects" style={{ flex: 1, scrollMarginTop: "var(--nav-h)" }}>
           {visible.length === 0 && (
-            <div style={{ padding: "72px 56px", textAlign: "center" }}>
+            <div style={{ padding: "72px var(--pad-x)", textAlign: "center" }}>
               <p style={{ fontFamily: "'DM Serif Display', serif", fontSize: 22, color: "#2a2925", marginBottom: 10 }}>No projects match that.</p>
               <p style={{ fontSize: 14, color: "#7a7a74" }}>Try removing a filter or broadening your search.</p>
             </div>

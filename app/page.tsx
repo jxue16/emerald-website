@@ -2,6 +2,11 @@
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
+// The recruiting banner is informational until applications open — swap in the
+// live application form and restore an "Apply" link once it does.
+const RECRUITING_TERM = "Fall 2026 analyst cohort";
+const APPLICATIONS_OPEN = "early October";
+
 const practices = [
   { num: "01", title: "Growth & Go-to-Market Strategy", desc: "Positioning, pricing, and launch plans that drive adoption and define where to win." },
   { num: "02", title: "Operational & Financial Modeling", desc: "Unit economics, forecasts, and scenario models to support confident planning." },
@@ -35,7 +40,7 @@ export default function Home() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html, body { height: 100%; background: #f7f5ef; }
+        html, body { min-height: 100%; background: #f7f5ef; }
 
         .hero-grid {
           display: grid; grid-template-columns: 1fr 1fr; min-height: calc(88vh - 116px);
@@ -58,6 +63,38 @@ export default function Home() {
           pointer-events: none;
         }
 
+        .recruit-banner {
+          position: relative; flex-shrink: 0; overflow: hidden;
+          background: #0f3d28; padding: 13px var(--pad-x);
+          display: flex; align-items: center; justify-content: center; gap: 16px;
+          flex-wrap: wrap;
+        }
+        .recruit-banner::after {
+          content: ''; position: absolute; inset: 0; background-image: var(--grain-uri);
+          opacity: 0.07; mix-blend-mode: overlay; pointer-events: none;
+        }
+        .recruit-banner::before {
+          content: ''; position: absolute; left: 0; right: 0; bottom: -22px; height: 22px; z-index: 2;
+          background: linear-gradient(to bottom, rgba(15,61,40,0.35), transparent); pointer-events: none;
+        }
+        .recruit-dot {
+          width: 7px; height: 7px; border-radius: 50%; background: #6aac88; flex-shrink: 0;
+          box-shadow: 0 0 0 0 rgba(106,172,136,0.6); animation: recruit-pulse 2.4s ease-out infinite;
+        }
+        @keyframes recruit-pulse {
+          0%   { box-shadow: 0 0 0 0 rgba(106,172,136,0.55); }
+          70%  { box-shadow: 0 0 0 7px rgba(106,172,136,0); }
+          100% { box-shadow: 0 0 0 0 rgba(106,172,136,0); }
+        }
+        .recruit-label {
+          font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+          color: #6aac88; font-weight: 500; white-space: nowrap;
+        }
+        .recruit-text { font-size: 13px; color: rgba(232,245,239,0.82); }
+        @media (prefers-reduced-motion: reduce) {
+          .recruit-dot { animation: none; }
+        }
+
         #practice-areas { position: relative; }
         #practice-areas::before {
           content: ''; position: absolute; left: 0; right: 0; top: 0; height: 260px;
@@ -71,7 +108,7 @@ export default function Home() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
-          padding: 4px 56px 96px;
+          padding: 4px var(--pad-x) 96px;
           position: relative;
         }
         .practice-cell {
@@ -96,7 +133,7 @@ export default function Home() {
         .practice-num { font-size: 11px; letter-spacing: 0.14em; color: #b6b3a8; font-weight: 500; transition: color 0.35s ease; }
         .practice-cell:hover .practice-num { color: #1a6e4a; }
 
-        .mission-bar { position: relative; overflow: hidden; }
+        .mission-bar { position: relative; overflow: hidden; flex-shrink: 0; }
         .mission-bar::before {
           content: ''; position: absolute; inset: 0;
           background:
@@ -157,26 +194,57 @@ export default function Home() {
             background: linear-gradient(168deg, #2a2925 0%, #2a2925 26%, #22523c 50%, #1a6e4a 74%, #1a6e4a 100%);
           }
           .hero-fade { display: none; }
+          .recruit-banner { padding: 12px var(--pad-x); gap: 10px; text-align: center; }
         }
         @media (max-width: 900px) {
-          .practice-grid { grid-template-columns: 1fr !important; padding: 4px 24px 72px; }
+          .practice-grid { grid-template-columns: 1fr !important; padding: 4px var(--pad-x) 72px; }
           .values-row { grid-template-columns: 1fr !important; }
           .mission-bar { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+        }
+        @media (max-width: 620px) {
+          .hero-panel { padding: 30px var(--pad-x) !important; }
+          .hero-stats { padding-top: 4px !important; }
+          .practice-grid { gap: 14px; padding-bottom: 56px; }
+          .practice-cell { padding: 26px 22px 24px; }
+          .value-cell { padding: 26px 22px; }
+          .values-row { gap: 14px; }
+          .mission-bar { padding: 40px var(--pad-x) !important; gap: 16px !important; }
+          .mission-link { display: inline-flex; align-items: center; min-height: 44px; }
+          /* The divider is a vertical rule for a horizontal bar; once the bar
+             stacks it reads as a stray tick, so turn it into a short underline. */
+          .mission-rule { width: 34px !important; height: 0.5px !important; }
+          /* Two ragged-width pills read as a mistake; make them a matched pair. */
+          .hero-actions { gap: 10px; }
+          .hero-actions a { flex: 1 1 100%; text-align: center; padding: 15px 20px !important; }
+        }
+        /* Touch devices get no hover, so the lift/underline reveals never fire —
+           drop the transforms rather than leave dead transitions on tap. */
+        @media (hover: none) {
+          .practice-cell:hover, .value-cell:hover, .btn-primary:hover, .btn-outline:hover { transform: none; }
         }
       `}</style>
 
       <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#2a2925", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <Nav />
 
+        {/* RECRUITING BANNER */}
+        <div className="recruit-banner">
+          <span className="recruit-dot" aria-hidden="true" />
+          <span className="recruit-label">Recruiting soon</span>
+          <span className="recruit-text">
+            Applications for our {RECRUITING_TERM} open in {APPLICATIONS_OPEN}.
+          </span>
+        </div>
+
         {/* HERO */}
         <section className="hero-grid" style={{ flex: 1 }}>
 
           {/* LEFT */}
-          <div className="hero-panel" style={{ padding: "40px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <div className="hero-panel" style={{ padding: "40px var(--pad-x)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 28, fontWeight: 500 }}>
               Johns Hopkins University · Est. 2022
             </p>
-            <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 46, lineHeight: 1.08, color: "#f0ede4", marginBottom: 24, fontWeight: 400 }}>
+            <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(31px, 8.4vw, 46px)", lineHeight: 1.08, color: "#f0ede4", marginBottom: 24, fontWeight: 400 }}>
               Strategy consulting,{" "}
               <em style={{ fontStyle: "italic", color: "#6aac88" }}>student-led.</em>
               <br />MBB-backed.
@@ -184,25 +252,25 @@ export default function Home() {
             <p style={{ fontSize: 15, color: "#9a9a90", lineHeight: 1.8, maxWidth: 400, marginBottom: 34 }}>
               We partner with startups and Fortune 500 companies to deliver rigorous, data-driven strategy — developed by the next generation of top consultants.
             </p>
-            <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
+            <div className="hero-actions" style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
               <a href="/work-with-us" className="btn-primary" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 28px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
                 Work with us
               </a>
-              <a href="/past-projects" className="btn-outline" style={{ backgroundColor: "transparent", color: "#9a9a90", border: "0.5px solid #444440", padding: "14px 28px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
+              <a href="/past-projects" className="btn-outline" style={{ backgroundColor: "transparent", color: "#c5c5bb", border: "1px solid rgba(106,172,136,0.55)", padding: "14px 28px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
                 View our work
               </a>
             </div>
           </div>
 
           {/* RIGHT — stats */}
-          <div className="hero-panel" style={{ padding: "40px 56px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          <div className="hero-panel hero-stats" style={{ padding: "40px var(--pad-x)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             {[
               { num: "25+", label: "Clients served" },
               { num: "$1T+", label: "Combined client market cap" },
               { num: "100%", label: "MBB-experienced leadership" },
             ].map((s) => (
               <div key={s.label} style={{ borderTop: "0.5px solid rgba(255,255,255,0.15)", padding: "22px 0" }}>
-                <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 46, color: "#e8f5ef", lineHeight: 1, marginBottom: 8, fontWeight: 400 }}>{s.num}</div>
+                <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(34px, 9vw, 46px)", color: "#e8f5ef", lineHeight: 1, marginBottom: 8, fontWeight: 400 }}>{s.num}</div>
                 <div style={{ fontSize: 11, color: "rgba(232,245,239,0.55)", letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500 }}>{s.label}</div>
               </div>
             ))}
@@ -212,10 +280,10 @@ export default function Home() {
         </section>
 
         {/* WHAT WE DO */}
-        <section id="practice-areas" style={{ scrollMarginTop: 57 }}>
-          <div style={{ padding: "72px 56px 40px", display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, flexWrap: "wrap" }}>
+        <section id="practice-areas" style={{ scrollMarginTop: "var(--nav-h)" }}>
+          <div style={{ padding: "72px var(--pad-x) 40px", display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, flexWrap: "wrap" }}>
             <div>
-              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 36, color: "#2a2925", fontWeight: 400, lineHeight: 1.1, maxWidth: 640 }}>
+              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(26px, 6.6vw, 36px)", color: "#2a2925", fontWeight: 400, lineHeight: 1.1, maxWidth: 640 }}>
                 Six capabilities.{" "}
                 <em style={{ fontStyle: "italic", color: "#1a6e4a" }}>One standard of excellence.</em>
               </h2>
@@ -237,9 +305,9 @@ export default function Home() {
         </section>
 
         {/* MISSION — slim horizontal bar */}
-        <div className="mission-bar" style={{ backgroundColor: "#1a6e4a", padding: "52px 56px", display: "flex", alignItems: "center", gap: 40 }}>
+        <div className="mission-bar" style={{ backgroundColor: "#1a6e4a", padding: "52px var(--pad-x)", display: "flex", alignItems: "center", gap: 40 }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(232,245,239,0.5)", fontWeight: 500, whiteSpace: "nowrap", flexShrink: 0 }}>Our mission</p>
-          <div style={{ width: "0.5px", height: 28, backgroundColor: "rgba(232,245,239,0.2)", flexShrink: 0 }} />
+          <div className="mission-rule" style={{ width: "0.5px", height: 28, backgroundColor: "rgba(232,245,239,0.2)", flexShrink: 0 }} />
           <p style={{ fontSize: 15, color: "rgba(232,245,239,0.85)", lineHeight: 1.65, fontFamily: "'DM Serif Display', serif", fontWeight: 400 }}>
             Led by MBB-experienced leaders, we develop the next generation of consultants at Johns Hopkins while delivering effective, data-driven strategy.
           </p>
@@ -249,7 +317,7 @@ export default function Home() {
         </div>
 
         {/* CORE VALUES */}
-        <div style={{ padding: "64px 56px 72px" }}>
+        <div style={{ padding: "64px var(--pad-x) 72px" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>How we operate</p>
           <div className="values-row">
             {values.map((v) => (

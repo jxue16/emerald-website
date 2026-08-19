@@ -6,9 +6,9 @@ import type { CSSProperties } from "react";
 // `bio` shows in an overlay on photo hover. Leave it "" to disable the overlay for that person.
 
 const boardOfDirectors = [
-  { name: "Ahmad Tabbara", role: "Director", photo: "/team/ahmad.jpg", linkedin: "https://linkedin.com", bio: "" },
+  { name: "Ahmad Tabbara", role: "Director", photo: "/team/ahmad.jpg", linkedin: "https://www.linkedin.com/in/ahmad-jr-tabbara-521010232", bio: "" },
   { name: "Travis Chen", role: "Director", photo: "/team/travis.jpg", linkedin: "https://linkedin.com", bio: "" },
-  { name: "Dhruv Dubey", role: "Director", photo: "/team/dhruv.jpg", linkedin: "https://linkedin.com", bio: "" },
+  { name: "Dhruv Dubey", role: "Director", photo: "/team/dhruv.jpg", linkedin: "https://www.linkedin.com/in/ddubey1", bio: "" },
   // Hidden for now — placeholder entries only.
   // { name: "Name", role: "Director", photo: "", linkedin: "https://linkedin.com", bio: "" },
   // { name: "Name", role: "Director", photo: "", linkedin: "https://linkedin.com", bio: "" },
@@ -23,25 +23,25 @@ const boardOfDirectors = [
 // ];
 
 const managingPartners = [
-  { name: "Nathan Xiong", role: "Managing Partner", photo: "/team/nathan.jpg", linkedin: "https://linkedin.com", bio: "Nathan is a junior studying Economics and Public Health. Outside of Emerald, he does public health research at JHU's Center for Drug Safety and Effectiveness and is a strategy associate for a medical device startup. In his free time, he enjoys playing and watching soccer and trying new cuisines." },
-  { name: "Andrew Zhao", role: "Managing Partner", photo: "/team/andrew.jpg", linkedin: "https://linkedin.com", bio: "Andrew is a senior studying Economics with minors in Accounting and History. Outside of Emerald, he has experience working as a quantitative and investment analyst. In his free time, he enjoys skiing, fashion history, and electronic music." },
-  { name: "Anita Zhu", role: "Managing Partner", photo: "/team/anita.jpg", linkedin: "https://linkedin.com", bio: "Anita is a junior majoring in Public Health with a minor in Accounting & Financial Management on the pre-dental track. Outside of Emerald, she conducts psychedelic research and volunteers in underserved communities; in her free time, Anita enjoys writing and ceramics." },
+  { name: "Nathan Xiong", role: "Managing Partner", photo: "/team/nathan.jpg", linkedin: "https://www.linkedin.com/in/xiong-nathan", bio: "Nathan is a junior studying Economics and Public Health. Outside of Emerald, he does public health research at JHU's Center for Drug Safety and Effectiveness and is a strategy associate for a medical device startup. In his free time, he enjoys playing and watching soccer and trying new cuisines." },
+  { name: "Andrew Zhao", role: "Managing Partner", photo: "/team/andrew.jpg", linkedin: "https://www.linkedin.com/in/andrewzhao30", bio: "Andrew is a senior studying Economics with minors in Accounting and History. Outside of Emerald, he has experience working as a quantitative and investment analyst. In his free time, he enjoys skiing, fashion history, and electronic music." },
+  { name: "Anita Zhu", role: "Managing Partner", photo: "/team/anita.jpg", linkedin: "https://www.linkedin.com/in/azhu91", bio: "Anita is a junior majoring in Public Health with a minor in Accounting & Financial Management on the pre-dental track. Outside of Emerald, she conducts psychedelic research and volunteers in underserved communities; in her free time, Anita enjoys writing and ceramics." },
 ];
 
 const projectLeads = [
-  { name: "Mischa Kumar", role: "Project Lead", photo: "/team/mischa.jpg", linkedin: "https://linkedin.com", bio: "Mischa is a junior studying computer science and financial economics. She's passionate about tech consulting and enjoys hiking and dancing in her free time." },
-  { name: "Minh Pham", role: "Project Lead", photo: "/team/minh.jpg", linkedin: "https://linkedin.com", bio: "Minh is a junior double majoring in biomedical engineering and computer science. He was previously an R&D Engineer intern at P&G and is involved in a design team, a computational genetics lab, and a PILOT leader on campus. Outside of school, he enjoys playing chess, tennis/pickleball, and poker." },
-  { name: "Alexander Kim", role: "Project Lead", photo: "/team/alex.jpg", linkedin: "https://linkedin.com", bio: "Alex is a rising junior studying Computer Science and Neuroscience. Outside of school, he has an interest in philosophy and entrepreneurship." },
+  { name: "Mischa Kumar", role: "Project Lead", photo: "/team/mischa.jpg", linkedin: "https://www.linkedin.com/in/mischa-kumar", bio: "Mischa is a junior studying computer science and financial economics. She's passionate about tech consulting and enjoys hiking and dancing in her free time." },
+  { name: "Minh Pham", role: "Project Lead", photo: "/team/minh.jpg", linkedin: "https://www.linkedin.com/in/minh-pham-523786231", bio: "Minh is a junior double majoring in biomedical engineering and computer science. He was previously an R&D Engineer intern at P&G and is involved in a design team, a computational genetics lab, and a PILOT leader on campus. Outside of school, he enjoys playing chess, tennis/pickleball, and poker." },
+  { name: "Alexander Kim", role: "Project Lead", photo: "/team/alex.jpg", linkedin: "https://www.linkedin.com/in/alexander-kim-463937316", bio: "Alex is a rising junior studying Computer Science and Neuroscience. Outside of school, he has an interest in philosophy and entrepreneurship." },
 ];
 
 const consultants = [
-  { name: "Jonathan Xue", role: "Consultant", photo: "/team/jonny.jpg", linkedin: "https://linkedin.com", bio: "Jonathan is a sophomore studying Mathematics and Computer Science, with additional interests in AI policy and linguistics. In his free time, he enjoys running casually, baking confections, and meeting new people. " },
-  { name: "Bhavya Guru", role: "Consultant", photo: "/team/bhavya.jpg", linkedin: "https://linkedin.com", bio: "Bhavya is a sophomore studying chemical and biomolecular engineering, interested in biophysics research and reading." },
-  { name: "Shrey Chettiar", role: "Consultant", photo: "/team/shrey.jpg", linkedin: "https://linkedin.com", bio: "Shrey is a sophomore studying ChemBE and minoring in Entrepreneurship & Management. Outside of Emerald, he runs for the Hopkins track team, cooks, DJs, and bandwagons Lamar Jackson." },
-  { name: "Tommy Hwang", role: "Consultant", photo: "/team/tommy.jpg", linkedin: "https://linkedin.com", bio: "Tommy is a sophomore majoring in Economics and Moral & Political Economy. Outside of Emerald, he enjoys playing poker, as well as the piano, guitar, and trumpet. He is also a member of TASA." },
-  { name: "Aditya Nimbalagundi", role: "Consultant", photo: "/team/adi.jpg", linkedin: "https://linkedin.com", bio: "Aditya is a Public Health Studies major who researches allergic airway immunology at the Lajoie Lab, serves as President of Blood Cancer United, and is Assistant Music Director of JHU Kranti acapella." },
-  { name: "Parshwa Shah", role: "Consultant", photo: "/team/parshwa.jpg", linkedin: "https://linkedin.com", bio: "Parshwa is a sophomore studying Computer Science and Biophysics. Beyond Emerald, he works on surgical robotics research and is running a startup of his own; off the clock, you'll find him reading, playing basketball, or picking up a guitar." },
-  { name: "Vivian Wang", role: "Consultant", photo: "/team/vivian.jpg", linkedin: "https://linkedin.com", bio: "Vivian is a sophomore majoring in Public Health. She enjoys playing piano, baking sourdough, and getting food with friends. Outside of Emerald, Vivian does neuroscience research at the med campus and volunteers at UMMC." },
+  { name: "Jonathan Xue", role: "Consultant", photo: "/team/jonny.jpg", linkedin: "https://www.linkedin.com/in/jonathanxue", bio: "Jonathan is a sophomore studying Mathematics and Computer Science, with additional interests in AI policy and linguistics. In his free time, he enjoys running casually, baking confections, and meeting new people. " },
+  { name: "Bhavya Guru", role: "Consultant", photo: "/team/bhavya.jpg", linkedin: "https://www.linkedin.com/in/bhavya-guru", bio: "Bhavya is a sophomore studying chemical and biomolecular engineering, interested in biophysics research and reading." },
+  { name: "Shrey Chettiar", role: "Consultant", photo: "/team/shrey.jpg", linkedin: "https://www.linkedin.com/in/shrey-chettiar-179792251", bio: "Shrey is a sophomore studying ChemBE and minoring in Entrepreneurship & Management. Outside of Emerald, he runs for the Hopkins track team, cooks, DJs, and bandwagons Lamar Jackson." },
+  { name: "Tommy Hwang", role: "Consultant", photo: "/team/tommy.jpg", linkedin: "https://www.linkedin.com/in/aidan-tommy-hwang", bio: "Tommy is a sophomore majoring in Economics and Moral & Political Economy. Outside of Emerald, he enjoys playing poker, as well as the piano, guitar, and trumpet. He is also a member of TASA." },
+  { name: "Aditya Nimbalagundi", role: "Consultant", photo: "/team/adi.jpg", linkedin: "https://www.linkedin.com/in/aditya-nimbalagundi-516b9324a", bio: "Aditya is a Public Health Studies major who researches allergic airway immunology at the Lajoie Lab, serves as President of Blood Cancer United, and is Assistant Music Director of JHU Kranti acapella." },
+  { name: "Parshwa Shah", role: "Consultant", photo: "/team/parshwa.jpg", linkedin: "https://www.linkedin.com/in/parshwashah1", bio: "Parshwa is a sophomore studying Computer Science and Biophysics. Beyond Emerald, he works on surgical robotics research and is running a startup of his own; off the clock, you'll find him reading, playing basketball, or picking up a guitar." },
+  { name: "Vivian Wang", role: "Consultant", photo: "/team/vivian.jpg", linkedin: "https://www.linkedin.com/in/vivianm-wang", bio: "Vivian is a sophomore majoring in Public Health. She enjoys playing piano, baking sourdough, and getting food with friends. Outside of Emerald, Vivian does neuroscience research at the med campus and volunteers at UMMC." },
 ];
 
 const alumni = [
@@ -87,6 +87,7 @@ function MemberCard({ name, role, photo, linkedin, bio }: { name: string; role: 
         href={linkedin}
         target="_blank"
         rel="noopener noreferrer"
+        className="member-name"
         style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: "'DM Serif Display', serif", fontSize: 17, color: "#2a2925", marginBottom: 4, fontWeight: 400, textDecoration: "none", transition: "color 0.2s" }}
         onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = "#1a6e4a"; }}
         onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = "#2a2925"; }}
@@ -95,13 +96,14 @@ function MemberCard({ name, role, photo, linkedin, bio }: { name: string; role: 
         <LinkedInIcon />
       </a>
       <div style={{ fontSize: 12, color: "#9a9a90", letterSpacing: "0.05em", textTransform: "uppercase", fontWeight: 500 }}>{role}</div>
+      {bio ? <p className="member-bio-static">{bio}</p> : null}
     </div>
   );
 }
 
 function Section({ title, members, borderBottom = true }: { title: string; members: typeof boardOfDirectors; borderBottom?: boolean }) {
   return (
-    <div style={{ padding: "64px 56px", borderBottom: borderBottom ? "0.5px solid #d0cec4" : "none" }}>
+    <div className="team-section" style={{ padding: "64px var(--pad-x)", borderBottom: borderBottom ? "0.5px solid #d0cec4" : "none" }}>
       <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 40 }}>{title}</p>
       <div className="member-grid">
         {members.map((m, i) => <MemberCard key={i} {...m} />)}
@@ -173,7 +175,7 @@ export default function Team() {
         .alumni-name:hover { color: #1a6e4a; }
         .alumni-year { font-size: 11px; color: #aaa8a0; letter-spacing: 0.08em; font-weight: 500; }
 
-        .join-cta { position: relative; overflow: hidden; border-radius: var(--radius-lg); margin: 0 56px 64px; }
+        .join-cta { position: relative; overflow: hidden; border-radius: var(--radius-lg); margin: 0 var(--pad-x) 64px; }
         .join-cta::before {
           content: ''; position: absolute; inset: 0;
           background:
@@ -194,12 +196,33 @@ export default function Team() {
         .join-btn:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(15,61,40,0.2), 0 20px 30px -12px rgba(15,61,40,0.6); }
 
         @media (max-width: 900px) {
-          .member-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .member-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px; }
           .alumni-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
-        @media (max-width: 500px) {
-          .member-grid { grid-template-columns: 1fr !important; }
+        @media (max-width: 620px) {
+          /* One card per row turned each member into a full screen of photo and
+             the roster into an endless scroll — two columns keeps it scannable. */
+          .member-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px 14px; }
           .alumni-grid { grid-template-columns: 1fr !important; }
+          .team-section { padding: 44px var(--pad-x) !important; }
+          .join-cta { margin: 0 var(--pad-x) 44px !important; padding: 34px 26px !important; }
+          .join-btn { width: 100%; text-align: center; }
+          /* A 26px-tall name+icon link is an awkward thumb target on a phone. */
+          .member-name { min-height: 44px; margin-top: -6px; margin-bottom: 0 !important; }
+        }
+
+        /* Touch devices never fire :hover, so the bio overlay was unreachable —
+           on those devices the bio sits under the photo as plain text instead. */
+        .member-bio-static { display: none; }
+        @media (hover: none) {
+          .member-photo:hover { transform: none; box-shadow: var(--shadow-soft); }
+          .member-bio { display: none; }
+          .member-bio-static {
+            display: block;
+            font-size: 12px; line-height: 1.6; color: #7a7a74;
+            margin-top: 8px;
+          }
+          .alumni-cell:hover, .join-btn:hover { transform: none; }
         }
       `}</style>
 
@@ -207,9 +230,9 @@ export default function Team() {
         <Nav />
 
         {/* PAGE HEADER */}
-        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px 56px 56px" }}>
+        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px var(--pad-x) 56px" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 16, fontWeight: 500 }}>The people</p>
-          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
+          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(34px, 9vw, 48px)", color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
             Our <em style={{ fontStyle: "italic", color: "#6aac88" }}>team.</em>
           </h1>
           <p style={{ fontSize: 14, color: "#9a9a90", lineHeight: 1.8, maxWidth: 500, marginTop: 20 }}>
@@ -228,7 +251,7 @@ export default function Team() {
         <div className="join-cta" style={{ backgroundColor: "#2a2925", padding: "56px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>
           <div>
             <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(232,245,239,0.5)", fontWeight: 500, marginBottom: 10 }}>Join us</p>
-            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 30, color: "#f0ede4", fontWeight: 400 }}>Interested in joining Emerald?</h2>
+            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(23px, 5.6vw, 30px)", color: "#f0ede4", fontWeight: 400 }}>Interested in joining Emerald?</h2>
           </div>
           <a href="/work-with-us" className="join-btn" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 32px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
             Apply now →

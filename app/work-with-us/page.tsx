@@ -23,17 +23,30 @@ export default function WorkWithUs() {
         }
         .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(15,61,40,0.2), 0 20px 30px -12px rgba(15,61,40,0.55); }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .name-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         @media (max-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+        }
+        @media (max-width: 620px) {
+          /* Anything under 16px makes iOS Safari zoom in when the field takes
+             focus, and it never zooms back out — the page is left scrolled off. */
+          .form-input { font-size: 16px; padding: 14px 14px; }
+          .form-input::placeholder { font-size: 14px; }
+          /* Two 120px-wide name fields are cramped; stack them. */
+          .name-row { grid-template-columns: 1fr; }
+          .contact-grid { gap: 34px !important; }
+        }
+        @media (hover: none) {
+          .submit-btn:hover { transform: none; }
         }
       `}</style>
       <div style={{ fontFamily: "'DM Sans', sans-serif", backgroundColor: "#f7f5ef", color: "#2a2925", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <Nav />
 
         {/* PAGE HEADER */}
-        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px 56px 56px" }}>
+        <div style={{ background: "radial-gradient(120% 135% at -5% -10%, rgba(38,140,94,0.38) 0%, rgba(38,140,94,0) 52%), radial-gradient(115% 130% at 105% 112%, rgba(10,44,30,0.78) 0%, rgba(10,44,30,0) 62%), linear-gradient(145deg, #34352e 0%, #2a2925 46%, #1d1c1a 100%)", padding: "64px var(--pad-x) 56px" }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#6aac88", marginBottom: 16, fontWeight: 500 }}>Get in touch</p>
-          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 48, color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
+          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(34px, 9vw, 48px)", color: "#f0ede4", fontWeight: 400, lineHeight: 1.1 }}>
             Contact <em style={{ fontStyle: "italic", color: "#6aac88" }}>us.</em>
           </h1>
           <p style={{ fontSize: 14, color: "#9a9a90", lineHeight: 1.8, maxWidth: 520, marginTop: 20 }}>
@@ -42,29 +55,29 @@ export default function WorkWithUs() {
         </div>
 
         {/* FORM */}
-        <div style={{ padding: "64px 56px", flex: 1 }}>
+        <div style={{ padding: "64px var(--pad-x)", flex: 1 }}>
           <div className="contact-grid">
             <div>
               <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#1a6e4a", fontWeight: 500, marginBottom: 20 }}>Contact us</p>
-              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 36, color: "#2a2925", lineHeight: 1.2, marginBottom: 20, fontWeight: 400 }}>
+              <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(27px, 6.6vw, 36px)", color: "#2a2925", lineHeight: 1.2, marginBottom: 20, fontWeight: 400 }}>
                 Ready to work<br />together?
               </h2>
               <p style={{ fontSize: 14, color: "#7a7a74", lineHeight: 1.7, marginBottom: 32 }}>
                 Tell us about your organization and the challenge you&apos;re facing. We&apos;ll follow up within 48 hours to discuss fit and next steps.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                  <span style={{ color: "#1a6e4a", fontSize: 14 }}>📍</span>
-                  <span style={{ fontSize: 13, color: "#7a7a74" }}>3301 N Charles St, Baltimore, MD 21218</span>
+                <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ color: "#1a6e4a", fontSize: 14, lineHeight: 1.5 }}>📍</span>
+                  <span style={{ fontSize: 13, color: "#7a7a74", lineHeight: 1.5 }}>3301 N Charles St, Baltimore, MD 21218</span>
                 </div>
-                <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-                  <span style={{ color: "#1a6e4a", fontSize: 14 }}>✉</span>
-                  <span style={{ fontSize: 13, color: "#7a7a74" }}>emeraldconsultinggroup.jhu@gmail.com</span>
+                <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ color: "#1a6e4a", fontSize: 14, lineHeight: 1.5 }}>✉</span>
+                  <span style={{ fontSize: 13, color: "#7a7a74", overflowWrap: "anywhere" }}>emeraldconsultinggroup.jhu@gmail.com</span>
                 </div>
               </div>
             </div>
             <div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <div className="name-row">
                 <input className="form-input" type="text" placeholder="First name" />
                 <input className="form-input" type="text" placeholder="Last name" />
               </div>

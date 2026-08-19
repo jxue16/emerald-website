@@ -2,10 +2,15 @@ export default function Footer() {
   return (
     <>
       <style>{`
-        .site-footer { padding: 28px 40px; }
+        .site-footer { padding: 28px var(--pad-x); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-link { display: inline-flex; align-items: center; }
         @media (max-width: 768px) {
-          .site-footer { padding: 22px 18px; }
-          .footer-meta { width: 100%; }
+          .site-footer { padding: 20px var(--pad-x) 26px; }
+          .footer-meta { width: 100%; line-height: 1.6; }
+          /* Give the three links real tap height instead of an 11px text hitbox. */
+          .footer-links { gap: 4px 22px; flex-wrap: wrap; }
+          .footer-link { min-height: 44px; }
         }
       `}</style>
     <footer className="site-footer" style={{ background: "radial-gradient(85% 240% at 100% 0%, rgba(34,140,92,0.26) 0%, transparent 60%), linear-gradient(180deg, #2c2b25 0%, #201f1c 68%, #191815 100%)" }}>
@@ -13,7 +18,7 @@ export default function Footer() {
         <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 15, color: "#6a6a64" }}>
           <span style={{ color: "#1a6e4a" }}>Emerald</span> Consulting Group
         </div>
-        <div style={{ display: "flex", gap: 24 }}>
+        <div className="footer-links">
           {[
             { label: "LinkedIn", href: "https://www.linkedin.com/company/emerald-consulting-group-jhu" },
             { label: "Instagram", href: "https://www.instagram.com/emerald.jhu/" },
