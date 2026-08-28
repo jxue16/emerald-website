@@ -9,12 +9,12 @@ const boardOfDirectors = [
   { name: "Ahmad Tabbara", role: "Director", photo: "/team/ahmad.jpg", linkedin: "https://www.linkedin.com/in/ahmad-jr-tabbara-521010232", bio: "" },
   { name: "Travis Chen", role: "Director", photo: "/team/travis.jpg", linkedin: "https://linkedin.com", bio: "" },
   { name: "Dhruv Dubey", role: "Director", photo: "/team/dhruv.jpg", linkedin: "https://www.linkedin.com/in/ddubey1", bio: "" },
-  // Hidden for now — placeholder entries only.
+  // Hidden for now: placeholder entries only.
   // { name: "Name", role: "Director", photo: "", linkedin: "https://linkedin.com", bio: "" },
   // { name: "Name", role: "Director", photo: "", linkedin: "https://linkedin.com", bio: "" },
 ];
 
-// Hidden for now — placeholder entries only.
+// Hidden for now: placeholder entries only.
 // const advisoryBoard = [
 //   { name: "Name", role: "Advisor", photo: "", linkedin: "https://linkedin.com", bio: "" },
 //   { name: "Name", role: "Advisor", photo: "", linkedin: "https://linkedin.com", bio: "" },
@@ -36,7 +36,7 @@ const projectLeads = [
 
 const consultants = [
   { name: "Jonathan Xue", role: "Consultant", photo: "/team/jonny.jpg", linkedin: "https://www.linkedin.com/in/jonathanxue", bio: "Jonathan is a sophomore studying Mathematics and Computer Science, with additional interests in AI policy and linguistics. In his free time, he enjoys running casually, baking confections, and meeting new people. " },
-  { name: "Bhavya Guru", role: "Consultant", photo: "/team/bhavya.jpg", linkedin: "https://www.linkedin.com/in/bhavya-guru", bio: "Bhavya is a sophomore studying chemical and biomolecular engineering, interested in biophysics research and reading." },
+  { name: "Bhavya Guru", role: "Consultant", photo: "/team/bhavya.jpg", linkedin: "https://www.linkedin.com/in/bhavya-guru", bio: "Bhavya is a sophomore studying ChemBE and minoring in Entrepreneurship. She is also a Learning Den tutor and involved in cell division research. In her free time, she enjoys reading, hiking, and playing tennis." },
   { name: "Shrey Chettiar", role: "Consultant", photo: "/team/shrey.jpg", linkedin: "https://www.linkedin.com/in/shrey-chettiar-179792251", bio: "Shrey is a sophomore studying ChemBE and minoring in Entrepreneurship & Management. Outside of Emerald, he runs for the Hopkins track team, cooks, DJs, and bandwagons Lamar Jackson." },
   { name: "Tommy Hwang", role: "Consultant", photo: "/team/tommy.jpg", linkedin: "https://www.linkedin.com/in/aidan-tommy-hwang", bio: "Tommy is a sophomore majoring in Economics and Moral & Political Economy. Outside of Emerald, he enjoys playing poker, as well as the piano, guitar, and trumpet. He is also a member of TASA." },
   { name: "Aditya Nimbalagundi", role: "Consultant", photo: "/team/adi.jpg", linkedin: "https://www.linkedin.com/in/aditya-nimbalagundi-516b9324a", bio: "Aditya is a Public Health Studies major who researches allergic airway immunology at the Lajoie Lab, serves as President of Blood Cancer United, and is Assistant Music Director of JHU Kranti acapella." },
@@ -201,7 +201,7 @@ export default function Team() {
         }
         @media (max-width: 620px) {
           /* One card per row turned each member into a full screen of photo and
-             the roster into an endless scroll — two columns keeps it scannable. */
+             the roster into an endless scroll; two columns keeps it scannable. */
           .member-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 20px 14px; }
           .alumni-grid { grid-template-columns: 1fr !important; }
           .team-section { padding: 44px var(--pad-x) !important; }
@@ -211,7 +211,7 @@ export default function Team() {
           .member-name { min-height: 44px; margin-top: -6px; margin-bottom: 0 !important; }
         }
 
-        /* Touch devices never fire :hover, so the bio overlay was unreachable —
+        /* Touch devices never fire :hover, so the bio overlay was unreachable;
            on those devices the bio sits under the photo as plain text instead. */
         .member-bio-static { display: none; }
         @media (hover: none) {
@@ -244,7 +244,7 @@ export default function Team() {
         <Section title="Project Leads" members={projectLeads} />
         <Section title="Consultants" members={consultants} />
         <Section title="Board of Directors" members={boardOfDirectors} />
-        {/* Hidden for now — placeholder entries only.
+        {/* Hidden for now: placeholder entries only.
         <Section title="Advisory Board" members={advisoryBoard} /> */}
 
         {/* JOIN CTA */}
