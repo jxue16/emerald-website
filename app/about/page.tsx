@@ -19,7 +19,7 @@ const timelineEvents = [
   {
     year: "2025",
     title: "Expansion",
-    body: "Building on prior momentum, we expanded into new sectors — including energy, education, and artificial intelligence — while growing to a 30-member team of dedicated consultants. With greater capacity and deeper expertise, we supported a client base totaling over $45 billion in combined market capitalization.",
+    body: "Building on prior momentum, we expanded into new sectors such as energy, education, and artificial intelligence while growing to a 30-member team of dedicated consultants. With greater capacity and deeper expertise, we supported a client base totaling over $45 billion in combined market capitalization.",
     image: "/about/2024.jpg",
     imageAlt: "Emerald team 2025",
   },
@@ -130,7 +130,7 @@ export default function About() {
         @media (max-width: 900px) {
           .mission-grid { grid-template-columns: 1fr !important; }
           /* The spine has to line up with the dots, which sit inside the page
-             gutter — a fixed 20px left it stranded outside the content. */
+             gutter. A fixed 20px left it stranded outside the content. */
           .timeline::before { left: calc(var(--pad-x) + 20px); transform: none; }
           .tl-row {
             grid-template-columns: 40px minmax(0, 1fr);
@@ -147,7 +147,7 @@ export default function About() {
           .tl-dot { margin-left: 15px; }
           .tl-year { position: absolute; left: calc(100% + 20px); top: 0; }
           .tl-text { grid-column: 2; grid-row: 1; padding-top: 26px !important; }
-          /* The story is half photographs — keep them, stacked under the copy,
+          /* The story is half photographs, so keep them, stacked under the copy,
              instead of dropping them entirely on the devices most people use. */
           .tl-image { grid-column: 2; grid-row: 2; margin-top: 20px; }
           .tl-title { font-size: 23px; }
@@ -186,7 +186,7 @@ export default function About() {
               <em style={{ fontStyle: "italic", color: "#1a6e4a" }}>elite consultants.</em>
             </h2>
             <p style={{ fontSize: 14, color: "#7a7a74", lineHeight: 1.8 }}>
-              Led by a board of exclusively MBB-experienced leaders, our mission is rooted in a dual commitment: develop top consultants at Johns Hopkins through immersive, hands-on engagement — and help organizations of any size unlock their full potential through data-driven strategy.
+              Led by a board with direct experience at McKinsey, Bain, and BCG, our mission is rooted in a dual commitment: develop top consultants at Johns Hopkins through immersive, hands-on engagement, and help organizations of any size unlock their full potential through data-driven strategy.
             </p>
           </div>
           <div style={{ padding: "64px var(--pad-x)" }}>

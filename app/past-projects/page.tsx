@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { useMemo, useState } from "react";
 
-// Standardized tag vocabulary — every project draws from these lists only.
+// Standardized tag vocabulary. Every project draws from these lists only.
 const PRACTICES = [
   "Market & Competitive Analysis",
   "Operational & Financial Modeling",
@@ -359,7 +359,7 @@ export default function PastProjects() {
           ))}
         </div>
 
-        {/* FEATURED PROJECT — Volvo */}
+        {/* FEATURED PROJECT: Volvo */}
         <section className="featured">
           <div className="featured-inner">
             <div className="featured-main">
@@ -370,10 +370,10 @@ export default function PastProjects() {
                 Volvo.
               </h2>
               <p className="feat-desc">
-                A public multinational in automotive and heavy manufacturing, and the largest
-                organization we have worked with. Our team evaluated a growth opportunity adjacent to
-                the core business, building the competitive landscape, sizing the market, and
-                presenting a recommendation directly to the client team.
+                A public multinational in automotive and heavy manufacturing. Our team evaluated
+                a growth opportunity adjacent to the core business, building the competitive
+                landscape, sizing the market, and presenting a recommendation directly to the
+                client team.
               </p>
             </div>
             <aside className="featured-aside">

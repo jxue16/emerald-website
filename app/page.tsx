@@ -2,10 +2,11 @@
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
-// The recruiting banner is informational until applications open — swap in the
+// The recruiting banner is informational until applications open. Swap in the
 // live application form and restore an "Apply" link once it does.
 const RECRUITING_TERM = "Fall 2026 analyst cohort";
 const APPLICATIONS_OPEN = "early October";
+const INTEREST_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfjWS4qghIrs-Ox4vA9BSDnm2cf7ONZvTuM9pEb-aCqjT_bsA/viewform";
 
 const practices = [
   { num: "01", title: "Growth & Go-to-Market Strategy", desc: "Positioning, pricing, and launch plans that drive adoption and define where to win." },
@@ -20,7 +21,7 @@ const values = [
   {
     icon: "◈",
     title: "Intellectual rigor",
-    desc: "Every recommendation is evidence-based. We apply structured frameworks and first-principles reasoning — intuition is a starting point, never a conclusion.",
+    desc: "Every recommendation is evidence-based. We apply structured frameworks and first-principles reasoning to reach conclusions that hold up under scrutiny.",
   },
   {
     icon: "◎",
@@ -30,7 +31,7 @@ const values = [
   {
     icon: "◇",
     title: "Developing talent",
-    desc: "We invest in our people because great work starts with great consultants. Every engagement is a training ground for the next generation of leaders.",
+    desc: "We invest in our people because great work starts with great consultants. Every engagement develops the next generation of leaders.",
   },
 ];
 
@@ -91,6 +92,11 @@ export default function Home() {
           color: #6aac88; font-weight: 500; white-space: nowrap;
         }
         .recruit-text { font-size: 13px; color: rgba(232,245,239,0.82); }
+        .recruit-link {
+          color: #6aac88; text-decoration: underline; text-underline-offset: 3px;
+          transition: color 0.2s ease;
+        }
+        .recruit-link:hover, .recruit-link:focus-visible { color: #e8f5ef; }
         @media (prefers-reduced-motion: reduce) {
           .recruit-dot { animation: none; }
         }
@@ -217,7 +223,7 @@ export default function Home() {
           .hero-actions { gap: 10px; }
           .hero-actions a { flex: 1 1 100%; text-align: center; padding: 15px 20px !important; }
         }
-        /* Touch devices get no hover, so the lift/underline reveals never fire —
+        /* Touch devices get no hover, so the lift/underline reveals never fire;
            drop the transforms rather than leave dead transitions on tap. */
         @media (hover: none) {
           .practice-cell:hover, .value-cell:hover, .btn-primary:hover, .btn-outline:hover { transform: none; }
@@ -232,7 +238,11 @@ export default function Home() {
           <span className="recruit-dot" aria-hidden="true" />
           <span className="recruit-label">Recruiting soon</span>
           <span className="recruit-text">
-            Applications for our {RECRUITING_TERM} open in {APPLICATIONS_OPEN}.
+            Applications for our {RECRUITING_TERM} open in {APPLICATIONS_OPEN}. To receive updates, fill out our{" "}
+            <a href={INTEREST_FORM_URL} target="_blank" rel="noopener noreferrer" className="recruit-link">
+              interest form
+            </a>
+            .
           </span>
         </div>
 
@@ -250,7 +260,7 @@ export default function Home() {
               <br />MBB-backed.
             </h1>
             <p style={{ fontSize: 15, color: "#9a9a90", lineHeight: 1.8, maxWidth: 400, marginBottom: 34 }}>
-              We partner with startups and Fortune 500 companies to deliver rigorous, data-driven strategy — developed by the next generation of top consultants.
+              We partner with startups and Fortune 500 companies to deliver rigorous, data-driven strategy, developed by the next generation of top consultants.
             </p>
             <div className="hero-actions" style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
               <a href="/work-with-us" className="btn-primary" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 28px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
@@ -262,12 +272,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* RIGHT — stats */}
+          {/* RIGHT: stats */}
           <div className="hero-panel hero-stats" style={{ padding: "40px var(--pad-x)", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             {[
               { num: "25+", label: "Clients served" },
               { num: "$1T+", label: "Combined client market cap" },
-              { num: "100%", label: "MBB-experienced leadership" },
+              { num: "100%", label: "Data-driven engagements" },
             ].map((s) => (
               <div key={s.label} style={{ borderTop: "0.5px solid rgba(255,255,255,0.15)", padding: "22px 0" }}>
                 <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(34px, 9vw, 46px)", color: "#e8f5ef", lineHeight: 1, marginBottom: 8, fontWeight: 400 }}>{s.num}</div>
@@ -289,7 +299,7 @@ export default function Home() {
               </h2>
             </div>
             <p style={{ fontSize: 14, color: "#7a7a74", lineHeight: 1.8, maxWidth: 360 }}>
-              Every engagement is scoped around the questions that matter most to the client — then staffed with the analysts best equipped to answer them.
+              Every engagement is scoped around the questions that matter most to the client, then staffed with the analysts best equipped to answer them.
             </p>
           </div>
 
@@ -304,7 +314,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MISSION — slim horizontal bar */}
+        {/* MISSION: slim horizontal bar */}
         <div className="mission-bar" style={{ backgroundColor: "#1a6e4a", padding: "52px var(--pad-x)", display: "flex", alignItems: "center", gap: 40 }}>
           <p style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(232,245,239,0.5)", fontWeight: 500, whiteSpace: "nowrap", flexShrink: 0 }}>Our mission</p>
           <div className="mission-rule" style={{ width: "0.5px", height: 28, backgroundColor: "rgba(232,245,239,0.2)", flexShrink: 0 }} />
