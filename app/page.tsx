@@ -257,7 +257,7 @@ export default function Home() {
             <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(31px, 8.4vw, 46px)", lineHeight: 1.08, color: "#f0ede4", marginBottom: 24, fontWeight: 400 }}>
               Strategy consulting,{" "}
               <em style={{ fontStyle: "italic", color: "#6aac88" }}>student-led.</em>
-              <br />MBB-backed.
+              <br />Backed by MBB experience.
             </h1>
             <p style={{ fontSize: 15, color: "#9a9a90", lineHeight: 1.8, maxWidth: 400, marginBottom: 34 }}>
               We partner with startups and Fortune 500 companies to deliver rigorous, data-driven strategy, developed by the next generation of top consultants.
