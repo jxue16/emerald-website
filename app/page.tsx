@@ -2,11 +2,8 @@
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 
-// The recruiting banner is informational until applications open. Swap in the
-// live application form and restore an "Apply" link once it does.
 const RECRUITING_TERM = "Fall 2026 analyst cohort";
-const APPLICATIONS_OPEN = "early October";
-const INTEREST_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfjWS4qghIrs-Ox4vA9BSDnm2cf7ONZvTuM9pEb-aCqjT_bsA/viewform";
+const APPLICATION_FORM_URL = "https://forms.gle/8wGfyMkKvLYXMXJX6";
 
 const practices = [
   { num: "01", title: "Growth & Go-to-Market Strategy", desc: "Positioning, pricing, and launch plans that drive adoption and define where to win." },
@@ -236,11 +233,11 @@ export default function Home() {
         {/* RECRUITING BANNER */}
         <div className="recruit-banner">
           <span className="recruit-dot" aria-hidden="true" />
-          <span className="recruit-label">Recruiting soon</span>
+          <span className="recruit-label">Now recruiting</span>
           <span className="recruit-text">
-            Applications for our {RECRUITING_TERM} open in {APPLICATIONS_OPEN}. To receive updates, fill out our{" "}
-            <a href={INTEREST_FORM_URL} target="_blank" rel="noopener noreferrer" className="recruit-link">
-              interest form
+            Applications for our {RECRUITING_TERM} are open. Apply via our{" "}
+            <a href={APPLICATION_FORM_URL} target="_blank" rel="noopener noreferrer" className="recruit-link">
+              application form
             </a>
             .
           </span>

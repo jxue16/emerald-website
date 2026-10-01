@@ -22,7 +22,7 @@ export default function Footer() {
           {[
             { label: "LinkedIn", href: "https://www.linkedin.com/company/emerald-consulting-group-jhu" },
             { label: "Instagram", href: "https://www.instagram.com/emerald.jhu/" },
-            { label: "Apply", href: "/work-with-us" },
+            { label: "Apply", href: "https://forms.gle/8wGfyMkKvLYXMXJX6" },
           ].map((l) => (
             <a key={l.label} href={l.href} className="footer-link" style={{
               fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase",

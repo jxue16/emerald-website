@@ -7,7 +7,7 @@ import type { CSSProperties } from "react";
 
 const boardOfDirectors = [
   { name: "Ahmad Tabbara", role: "Director", photo: "/team/ahmad.jpg", linkedin: "https://www.linkedin.com/in/ahmad-jr-tabbara-521010232", bio: "" },
-  { name: "Travis Chen", role: "Director", photo: "/team/travis.jpg", linkedin: "https://linkedin.com", bio: "" },
+  { name: "Travis Chen", role: "Director", photo: "/team/travis.jpg", linkedin: "https://www.linkedin.com/in/travischen6/", bio: "" },
   { name: "Dhruv Dubey", role: "Director", photo: "/team/dhruv.jpg", linkedin: "https://www.linkedin.com/in/ddubey1", bio: "" },
   // Hidden for now: placeholder entries only.
   // { name: "Name", role: "Director", photo: "", linkedin: "https://linkedin.com", bio: "" },
@@ -253,7 +253,7 @@ export default function Team() {
             <p style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(232,245,239,0.5)", fontWeight: 500, marginBottom: 10 }}>Join us</p>
             <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: "clamp(23px, 5.6vw, 30px)", color: "#f0ede4", fontWeight: 400 }}>Interested in joining Emerald?</h2>
           </div>
-          <a href="/work-with-us" className="join-btn" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 32px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
+          <a href="https://forms.gle/8wGfyMkKvLYXMXJX6" target="_blank" rel="noopener noreferrer" className="join-btn" style={{ backgroundColor: "#1a6e4a", color: "#e8f5ef", padding: "14px 32px", fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 500, textDecoration: "none" }}>
             Apply now →
           </a>
         </div>

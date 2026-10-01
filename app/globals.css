@@ -4,13 +4,13 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* responsive page gutter — every full-bleed section uses this instead of a
+  /* responsive page gutter. Every full-bleed section uses this instead of a
      hardcoded 56px, so one token controls inset at every breakpoint */
   --pad-x: 56px;
   /* height of the sticky nav, used for scroll-margin on in-page anchors */
   --nav-h: 57px;
 
-  /* shared surface tokens — elevation & texture */
+  /* shared surface tokens: elevation & texture */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 18px;
@@ -20,7 +20,7 @@
   --grain-uri: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* reusable grain film for flat color surfaces — gives a dyed/printed quality instead of a flat CSS fill */
+/* reusable grain film for flat color surfaces; gives a dyed/printed quality instead of a flat CSS fill */
 .grain-overlay {
   content: "";
   position: absolute;
@@ -31,7 +31,7 @@
 .grain-overlay.on-dark { mix-blend-mode: overlay; opacity: 0.09; }
 .grain-overlay.on-light { mix-blend-mode: multiply; opacity: 0.05; }
 
-/* reusable elevated card — soft brand-tinted shadow + gentle hover lift, replaces hairline-grid cells */
+/* reusable elevated card: soft brand-tinted shadow + gentle hover lift, replaces hairline-grid cells */
 .surface-card {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
@@ -42,7 +42,7 @@
   box-shadow: var(--shadow-card-hover);
 }
 
-/* footer nav links — signal interactivity with a color shift + underline on hover */
+/* footer nav links: signal interactivity with a color shift + underline on hover */
 .footer-link {
   transition: color 0.2s ease;
   position: relative;

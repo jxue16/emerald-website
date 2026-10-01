@@ -1,8 +1,30 @@
 "use client";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { useState, type FormEvent } from "react";
 
 export default function WorkWithUs() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus("sending");
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.fromEntries(new FormData(form))),
+    }).catch(() => null);
+    if (res?.ok) {
+      setStatus("sent");
+      form.reset();
+    } else {
+      setError((await res?.json().catch(() => null))?.error ?? "Something went wrong. Please email us directly.");
+      setStatus("error");
+    }
+  }
+
   return (
     <>
       <style>{`
@@ -29,7 +51,7 @@ export default function WorkWithUs() {
         }
         @media (max-width: 620px) {
           /* Anything under 16px makes iOS Safari zoom in when the field takes
-             focus, and it never zooms back out — the page is left scrolled off. */
+             focus, and it never zooms back out, leaving the page scrolled off. */
           .form-input { font-size: 16px; padding: 14px 14px; }
           .form-input::placeholder { font-size: 14px; }
           /* Two 120px-wide name fields are cramped; stack them. */
@@ -76,25 +98,27 @@ export default function WorkWithUs() {
                 </div>
               </div>
             </div>
-            <div>
+            <form onSubmit={handleSubmit}>
               <div className="name-row">
-                <input className="form-input" type="text" placeholder="First name" />
-                <input className="form-input" type="text" placeholder="Last name" />
+                <input className="form-input" name="firstName" type="text" placeholder="First name" required />
+                <input className="form-input" name="lastName" type="text" placeholder="Last name" required />
               </div>
-              <input className="form-input" type="text" placeholder="Organization" />
-              <input className="form-input" type="email" placeholder="Email address" />
-              <select className="form-input">
+              <input className="form-input" name="organization" type="text" placeholder="Organization" />
+              <input className="form-input" name="email" type="email" placeholder="Email address" required />
+              <select className="form-input" name="inquiryType" defaultValue="" required>
                 <option value="" disabled>Type of inquiry</option>
                 <option>Client engagement</option>
                 <option>Join as a consultant</option>
                 <option>Partnership</option>
                 <option>Other</option>
               </select>
-              <textarea className="form-input" placeholder="Tell us about your project or challenge..." style={{ height: 110, resize: "none" }} />
-              <button className="submit-btn" style={{ width: "100%", backgroundColor: "#1a6e4a", color: "#e8f5ef", border: "none", padding: "15px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 500, cursor: "pointer", fontFamily: "'DM Sans', sans-serif" }}>
-                Submit inquiry
+              <textarea className="form-input" name="message" required placeholder="Tell us about your project or challenge..." style={{ height: 110, resize: "none" }} />
+              <button className="submit-btn" type="submit" disabled={status === "sending"} style={{ width: "100%", backgroundColor: "#1a6e4a", color: "#e8f5ef", border: "none", padding: "15px", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 500, cursor: "pointer", fontFamily: "'DM Sans', sans-serif" }}>
+                {status === "sending" ? "Sending…" : "Submit inquiry"}
               </button>
-            </div>
+              {status === "sent" && <p style={{ marginTop: 12, fontSize: 13, color: "#1a6e4a" }}>Thanks — we&apos;ve received your inquiry and will be in touch soon.</p>}
+              {status === "error" && <p style={{ marginTop: 12, fontSize: 13, color: "#a33a2a" }}>{error}</p>}
+            </form>
           </div>
         </div>
 

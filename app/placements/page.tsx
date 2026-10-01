@@ -4,9 +4,10 @@ import Footer from "../components/Footer";
 
 const companies = [
   // `logo` overrides the favicon fallback with a local, full-resolution wordmark.
-  { name: "AstraZeneca", domain: "astrazeneca.com", logo: "/logos/astrazeneca.svg" },
+  { name: "McKinsey & Company", domain: "mckinsey.com", logo: "/logos/mckinsey.svg" },
   { name: "Bain & Company", domain: "bain.com" },
   { name: "Boston Consulting Group", domain: "bcg.com" },
+  { name: "AstraZeneca", domain: "astrazeneca.com", logo: "/logos/astrazeneca.svg" },
   { name: "Deloitte", domain: "deloitte.com" },
   { name: "Booz Allen Hamilton", domain: "boozallen.com" },
   { name: "JPMorgan Chase", domain: "jpmorganchase.com" },
@@ -17,7 +18,6 @@ const companies = [
   { name: "Google", domain: "google.com" },
   { name: "Kearney", domain: "kearney.com" },
   { name: "EY-Parthenon", domain: "ey.com" },
-  { name: "ING", domain: "ing.com" },
   { name: "Mastercard", domain: "mastercard.com" },
 ];
 
@@ -181,7 +181,7 @@ export default function Placements() {
           </div>
         </header>
 
-        {/* FIRMS — logo wall */}
+        {/* FIRMS: logo wall */}
         <section className="firms">
           <div className="grain grain-light" />
           <p className="eyebrow">Where our alumni work</p>
